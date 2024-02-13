@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@+id/navigation_splash">
+
+    <fragment
+        android:id="@+id/navigation_splash"
+        android:name="com.cm.leadapp.ui.onboarding.SplashFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splash_to_email"
+            app:destination="@id/navigation_email" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_email"
+        android:name="com.cm.leadapp.ui.onboarding.EmailFragment"
+        android:label="@string/email"
+        tools:layout="@layout/fragment_email">
+        <action
+            android:id="@+id/action_email_to_otp"
+            app:destination="@id/navigation_otp" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_otp"
+        android:name="com.cm.leadapp.ui.onboarding.OtpFragment"
+        android:label="@string/otp"
+        tools:layout="@layout/fragment_otp" >
+        <action
+            android:id="@+id/action_otp_to_email"
+            app:destination="@id/navigation_email" />
+    </fragment>
+</navigation>

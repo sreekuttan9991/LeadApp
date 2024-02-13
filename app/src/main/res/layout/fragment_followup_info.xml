@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.leaddetails.FollowupInfoFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_followup_info"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginStart="@dimen/tex_size_10"
+        android:layout_marginEnd="@dimen/tex_size_10"
+        android:scrollbars="none"/>
+
+</FrameLayout>

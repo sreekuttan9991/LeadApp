@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_dashboard">
+
+
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.cm.leadapp.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_followup"
+        android:name="com.cm.leadapp.ui.followup.FollowupFragment"
+        android:label="@string/upcoming_follow_up"
+        tools:layout="@layout/fragment_followup" />
+
+    <fragment
+        android:id="@+id/navigation_missed_followup"
+        android:name="com.cm.leadapp.ui.missed.MissedFollowupFragment"
+        android:label="@string/missed_followup"
+        tools:layout="@layout/fragment_missed_followup" />
+
+    <fragment
+        android:id="@+id/navigation_leads"
+        android:name="com.cm.leadapp.ui.leads.LeadsFragment"
+        android:label="@string/leads"
+        tools:layout="@layout/fragment_leads" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_closed_leads"
+        android:name="com.cm.leadapp.ui.closed.ClosedLeadsFragment"
+        android:label="@string/closed_leads"
+        tools:layout="@layout/fragment_closed_leads" >
+
+    </fragment>
+
+</navigation>
