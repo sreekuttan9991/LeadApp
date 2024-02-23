@@ -11,12 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cm.leadapp.ui.leaddetails.LeadDetailsActivity
-import com.cm.leadapp.R
+import com.cm.kbslead.R
+import com.cm.kbslead.databinding.FragmentMissedFollowupBinding
 import com.cm.leadapp.data.responsemodel.FollowupData
-import com.cm.leadapp.databinding.FragmentMissedFollowupBinding
 import com.cm.leadapp.ui.action.LeadActionsActivity
 import com.cm.leadapp.ui.adapter.MissedFollowupsAdapter
+import com.cm.leadapp.ui.leaddetails.LeadDetailsActivity
 import com.cm.leadapp.util.GenUtils
 import com.cm.leadapp.util.LoadingDialog
 import com.cm.leadapp.util.OnFollowupsItemClickListener

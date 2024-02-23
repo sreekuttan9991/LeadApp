@@ -13,8 +13,8 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.cm.kbslead.databinding.FragmentAddFollowupBinding
 import com.cm.leadapp.data.responsemodel.FollowType
-import com.cm.leadapp.databinding.FragmentAddFollowupBinding
 import com.cm.leadapp.ui.adapter.StatusAdapter
 import com.cm.leadapp.util.GenUtils
 import com.cm.leadapp.util.LoadingDialog
@@ -56,17 +56,13 @@ class AddFollowupFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAddFollowupBinding.inflate(inflater, container, false)
-
         leadId = arguments?.getString("lead_id").toString()
-
         loadingDialog = LoadingDialog(requireActivity())
         calendar = Calendar.getInstance()
-
         setupObserver()
         setupClickListeners()
         getStatusList()
         setupSpinnerListener()
-
         return binding.root
     }
 
@@ -181,7 +177,7 @@ class AddFollowupFragment : Fragment() {
         builder.setTitle(status?.uppercase())
         builder.setMessage(message)
         builder.setCancelable(false)
-        builder.setPositiveButton("OK") { dialog, which ->
+        builder.setPositiveButton("OK") { _, _ ->
             (requireActivity() as LeadActionsActivity).finish()
         }
         builder.show()
@@ -195,16 +191,10 @@ class AddFollowupFragment : Fragment() {
 
 
     private fun showLoading() {
-
         loadingDialog.startLoadingDialog()
-
     }
 
     private fun dismissLoading() {
-
         loadingDialog.dismissDialog()
-
     }
-
-
 }

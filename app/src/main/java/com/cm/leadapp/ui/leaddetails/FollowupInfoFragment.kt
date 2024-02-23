@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cm.leadapp.databinding.FragmentFollowupInfoBinding
+import com.cm.kbslead.databinding.FragmentFollowupInfoBinding
 import com.cm.leadapp.ui.adapter.InfoAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,11 +28,6 @@ class FollowupInfoFragment : Fragment() {
         fun newInstance() = FollowupInfoFragment()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,7 +42,7 @@ class FollowupInfoFragment : Fragment() {
     }
 
     private fun setupObserver() {
-        viewModel.followupInfoData.observe(viewLifecycleOwner){
+        viewModel.followupInfoData.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { infoList ->
                 infoAdapter = InfoAdapter(infoList)
 

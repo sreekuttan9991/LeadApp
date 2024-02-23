@@ -10,12 +10,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cm.leadapp.ui.leaddetails.LeadDetailsActivity
-import com.cm.leadapp.R
+import com.cm.kbslead.R
+import com.cm.kbslead.databinding.FragmentClosedLeadsBinding
 import com.cm.leadapp.data.responsemodel.ClosedLeadData
-import com.cm.leadapp.databinding.FragmentClosedLeadsBinding
 import com.cm.leadapp.ui.action.LeadActionsActivity
 import com.cm.leadapp.ui.adapter.ClosedLeadsAdapter
+import com.cm.leadapp.ui.leaddetails.LeadDetailsActivity
 import com.cm.leadapp.util.OnClosedLeadsItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 

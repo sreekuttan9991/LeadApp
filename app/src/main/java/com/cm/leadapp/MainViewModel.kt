@@ -4,13 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cm.leadapp.data.pref.MySharedPref
-import com.cm.leadapp.data.repository.LeadsRepository
 import com.cm.leadapp.data.repository.MainRepository
 import com.cm.leadapp.data.request.AddCallLogRequest
 import com.cm.leadapp.data.responsemodel.SaleContactResponse
 import com.cm.leadapp.data.responsemodel.SyncResponse
-import com.cm.leadapp.data.responsemodel.TrashLeadResponse
-import com.cm.leadapp.util.Event
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch

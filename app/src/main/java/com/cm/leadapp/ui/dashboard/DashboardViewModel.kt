@@ -13,14 +13,14 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class DashboardViewModel  @Inject constructor(private val statisticsRepository: StatisticsRepository) : ViewModel() {
+class DashboardViewModel @Inject constructor(private val statisticsRepository: StatisticsRepository) :
+    ViewModel() {
 
     private val _statsData = MutableLiveData<ArrayList<Statistics>>()
     val statsData = _statsData
 
 
-
-private val mapper = StatisticsUiMapper()
+    private val mapper = StatisticsUiMapper()
 
     fun getUserData(saleId: String) {
 

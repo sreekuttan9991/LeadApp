@@ -7,8 +7,10 @@ import com.cm.leadapp.data.responsemodel.ClosedLeadData
 import kotlinx.coroutines.flow.collectLatest
 import org.json.JSONObject
 
-
-class ClosedLeadsPageSource constructor(private val apiHelper: ApiHelper, private val input: JSONObject ): PagingSource<Int, ClosedLeadData>() {
+class ClosedLeadsPageSource(
+    private val apiHelper: ApiHelper,
+    private val input: JSONObject
+) : PagingSource<Int, ClosedLeadData>() {
     override fun getRefreshKey(state: PagingState<Int, ClosedLeadData>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
@@ -23,14 +25,16 @@ class ClosedLeadsPageSource constructor(private val apiHelper: ApiHelper, privat
             val response = apiHelper.getClosedLeads(input, position)
             var data = ArrayList<ClosedLeadData>()
             response.collectLatest {
-               data = it.data
+                data = it.data
             }
-            val nextKey = if(data.size > 0)
-                position+1
+            val nextKey = if (data.size > 0)
+                position + 1
             else null
 
-            LoadResult.Page(data = data, prevKey = if (position == 1) null else position - 1,
-                nextKey = nextKey)
+            LoadResult.Page(
+                data = data, prevKey = if (position == 1) null else position - 1,
+                nextKey = nextKey
+            )
         } catch (e: Exception) {
             LoadResult.Error(e)
         }

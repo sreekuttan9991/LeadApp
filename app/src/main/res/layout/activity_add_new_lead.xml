@@ -9,14 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/margin_60"
         android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_16"
         android:alpha="0.3"
         android:clickable="false"
-        android:layout_marginEnd="@dimen/margin_16"
         android:text="@string/save"
-        app:layout_constraintTop_toBottomOf="@+id/scroll_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll_view" />
 
     <ProgressBar
         android:id="@+id/progress_new_lead"
@@ -62,12 +62,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_50"
                 android:layout_marginTop="@dimen/margin_5"
-                android:textColor="@color/black"
-                android:textSize="@dimen/base_text_size"
                 android:background="@drawable/edit_bg"
                 android:paddingStart="@dimen/margin_5"
                 android:paddingEnd="@dimen/margin_5"
-                 />
+                android:textColor="@color/black"
+                android:textSize="@dimen/base_text_size" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -79,6 +78,26 @@
 
             <EditText
                 android:id="@+id/et_customer_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_50"
+                android:layout_marginTop="@dimen/margin_5"
+                android:background="@drawable/edit_bg"
+                android:inputType="phone"
+                android:paddingStart="@dimen/margin_5"
+                android:paddingEnd="@dimen/margin_5"
+                android:textColor="@color/black"
+                android:textSize="@dimen/base_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:text="@string/parent_phone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tex_size_12" />
+
+            <EditText
+                android:id="@+id/et_parent_phone"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_50"
                 android:layout_marginTop="@dimen/margin_5"
@@ -107,7 +126,7 @@
                 android:paddingStart="@dimen/margin_5"
                 android:paddingEnd="@dimen/margin_5"
                 android:textColor="@color/black"
-                android:textSize="@dimen/base_text_size"/>
+                android:textSize="@dimen/base_text_size" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -131,11 +150,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/ic_spinner_arrow"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/base_text_size"
                     android:gravity="center_vertical"
                     android:hint="@string/search_country"
                     android:padding="@dimen/margin_8"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/base_text_size"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -191,8 +210,8 @@
                             android:id="@+id/progress_state"
                             android:layout_width="@dimen/margin_50"
                             android:layout_height="@dimen/margin_50"
-                            android:visibility="invisible"
-                            android:layout_centerInParent="true" />
+                            android:layout_centerInParent="true"
+                            android:visibility="invisible" />
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -246,8 +265,8 @@
                             android:id="@+id/progress_district"
                             android:layout_width="@dimen/margin_50"
                             android:layout_height="@dimen/margin_50"
-                            android:visibility="invisible"
-                            android:layout_centerInParent="true" />
+                            android:layout_centerInParent="true"
+                            android:visibility="invisible" />
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -577,7 +596,6 @@
                 android:textSize="@dimen/base_text_size" />
 
         </LinearLayout>
-
 
     </ScrollView>
 

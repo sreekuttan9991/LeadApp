@@ -5,5 +5,5 @@ import com.cm.leadapp.data.responsemodel.FollowupData
 
 interface OnFollowupsItemClickListener {
 
-    fun onItemClick(followup : FollowupData?, view: View?)
+    fun onItemClick(followup: FollowupData?, view: View?)
 }

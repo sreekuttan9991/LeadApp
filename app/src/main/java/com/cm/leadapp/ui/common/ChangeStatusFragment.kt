@@ -9,9 +9,9 @@ import android.widget.AdapterView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.cm.kbslead.databinding.FragmentChangeStatusBinding
 import com.cm.leadapp.data.responsemodel.FinalStatus
 import com.cm.leadapp.data.responsemodel.Status
-import com.cm.leadapp.databinding.FragmentChangeStatusBinding
 import com.cm.leadapp.ui.action.LeadActionsActivity
 import com.cm.leadapp.ui.adapter.StatusAdapter
 import com.cm.leadapp.util.LoadingDialog

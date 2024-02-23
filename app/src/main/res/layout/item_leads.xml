@@ -23,10 +23,10 @@
             android:id="@+id/iv_down"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="@dimen/margin_5"
+            android:layout_gravity="bottom|center_horizontal"
             android:paddingStart="@dimen/margin_5"
             android:paddingTop="@dimen/margin_5"
-            android:layout_gravity="bottom|center_horizontal"
+            android:paddingEnd="@dimen/margin_5"
             android:src="@drawable/ic_down" />
 
         <LinearLayout
@@ -80,57 +80,9 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv_label_product"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:gravity="start"
-                    android:text="@string/label_product"
-                    android:textColor="@color/text_color"
-                    android:textSize="@dimen/tex_size_10" />
-
-                <TextView
-                    android:id="@+id/tv_product"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:layout_toEndOf="@+id/tv_label_product"
-                    android:gravity="start"
-                    android:text="@string/null_placeholder"
-                    android:textColor="@color/text_color"
-                    android:textSize="@dimen/tex_size_10"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_label_category"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_label_product"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:gravity="start"
-                    android:text="@string/label_category"
-                    android:textColor="@color/text_color"
-                    android:textSize="@dimen/tex_size_10" />
-
-                <TextView
-                    android:id="@+id/tv_category"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_label_product"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:layout_toEndOf="@+id/tv_label_category"
-                    android:gravity="start"
-                    android:text="@string/placeholder"
-                    android:textAllCaps="true"
-                    android:textColor="@color/text_color"
-                    android:textSize="@dimen/tex_size_10"
-                    android:textStyle="bold" />
-
-                <TextView
                     android:id="@+id/tv_touch_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_label_category"
                     android:layout_marginTop="@dimen/margin_5"
                     android:gravity="start"
                     android:text="@string/placeholder"
@@ -144,6 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="@dimen/margin_8"
+                    android:layout_marginBottom="@dimen/margin_8"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -169,17 +122,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/lin_trash"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/margin_25"
-                    android:layout_below="@id/lin_status"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:orientation="horizontal"
-                    android:visibility="visible">
-
-                </LinearLayout>
             </RelativeLayout>
 
         </LinearLayout>
@@ -238,13 +180,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_20"
                 android:src="@drawable/ic_timeline" />
-
-            <ImageView
-                android:id="@+id/iv_trash"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_20"
-                android:src="@drawable/ic_trash" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

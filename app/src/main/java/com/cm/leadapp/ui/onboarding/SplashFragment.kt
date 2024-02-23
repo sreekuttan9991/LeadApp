@@ -13,10 +13,10 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.cm.kbslead.R
+import com.cm.kbslead.databinding.FragmentSplashBinding
 import com.cm.leadapp.MainActivity
-import com.cm.leadapp.R
 import com.cm.leadapp.data.pref.MySharedPref
-import com.cm.leadapp.databinding.FragmentSplashBinding
 import com.cm.leadapp.util.GenUtils
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

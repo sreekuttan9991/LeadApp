@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cm.leadapp.databinding.FragmentFollowupHistoryBinding
+import com.cm.kbslead.databinding.FragmentFollowupHistoryBinding
 import com.cm.leadapp.ui.adapter.FollowupHistoryAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,12 +29,6 @@ class FollowupHistoryFragment : Fragment() {
     }
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,7 +44,7 @@ class FollowupHistoryFragment : Fragment() {
     }
 
     private fun setupObserver() {
-        viewModel.followupHistoryList.observe(viewLifecycleOwner){
+        viewModel.followupHistoryList.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { hisList ->
                 followupHistoryAdapter = FollowupHistoryAdapter(hisList)
 

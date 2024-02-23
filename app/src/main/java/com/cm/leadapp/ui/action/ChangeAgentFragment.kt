@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.cm.leadapp.data.responsemodel.Agent
+import com.cm.kbslead.databinding.FragmentChangeAgentBinding
 import com.cm.leadapp.data.pref.MySharedPref
-import com.cm.leadapp.databinding.FragmentChangeAgentBinding
+import com.cm.leadapp.data.responsemodel.Agent
 import com.cm.leadapp.util.LoadingDialog
 import com.cm.leadapp.util.OnChangeAgentDialogDismissListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,11 +52,8 @@ class ChangeAgentFragment : Fragment(), OnChangeAgentDialogDismissListener {
     private fun setupClickListener() {
         binding.apply {
             tvSelectedAgent.setOnClickListener {
-
                 val dialog = SearchAgentDialogFragment.newInstance()
-
                 dialog.setDismissListener(this@ChangeAgentFragment)
-
                 dialog.show(childFragmentManager, "change_agent")
             }
             btnChangeAgent.setOnClickListener {
@@ -88,7 +85,7 @@ class ChangeAgentFragment : Fragment(), OnChangeAgentDialogDismissListener {
         builder.setTitle(status?.uppercase())
         builder.setMessage(message)
         builder.setCancelable(false)
-        builder.setPositiveButton("OK") { dialog, which ->
+        builder.setPositiveButton("OK") { _, _ ->
             (requireActivity() as LeadActionsActivity).finish()
         }
         builder.show()

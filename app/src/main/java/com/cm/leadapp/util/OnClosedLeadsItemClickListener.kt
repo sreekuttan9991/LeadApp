@@ -5,5 +5,5 @@ import com.cm.leadapp.data.responsemodel.ClosedLeadData
 
 interface OnClosedLeadsItemClickListener {
 
-    fun onItemClick(lead : ClosedLeadData?, view: View?)
+    fun onItemClick(lead: ClosedLeadData?, view: View?)
 }

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cm.leadapp.databinding.FragmentTimelineBinding
+import com.cm.kbslead.databinding.FragmentTimelineBinding
 import com.cm.leadapp.ui.adapter.TimelineAdapter
 import com.lriccardo.timelineview.TimelineDecorator
 import dagger.hilt.android.AndroidEntryPoint
@@ -61,7 +61,7 @@ class TimelineFragment : Fragment() {
                 TimelineDecorator(
                     indicatorSize = 20f,
                     indicatorColor = Color.parseColor("#FFF50057"),
-                    lineColor = Color.parseColor("#FF3F51B5"),
+                    lineColor = Color.parseColor("#FF9C27B0"),
                     lineWidth = 8f,
                     position = TimelineDecorator.Position.Left,
                     padding = 48f

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cm.leadapp.databinding.FragmentBasicInfoBinding
+import com.cm.kbslead.databinding.FragmentBasicInfoBinding
 import com.cm.leadapp.ui.adapter.InfoAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

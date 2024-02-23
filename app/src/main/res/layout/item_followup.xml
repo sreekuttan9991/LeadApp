@@ -46,10 +46,10 @@
                     android:layout_marginTop="@dimen/margin_10"
                     android:layout_toStartOf="@+id/iv_whatsapp"
                     android:gravity="start"
-                    android:textStyle="bold"
                     android:text="@string/placeholder"
                     android:textColor="@color/text_color"
-                    android:textSize="@dimen/base_text_size" />
+                    android:textSize="@dimen/base_text_size"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/iv_whatsapp"
@@ -78,25 +78,28 @@
                 <TextView
                     android:id="@+id/tv_label_product"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/margin_15"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="@dimen/margin_5"
-                    android:gravity="start"
-                    android:text="@string/product"
+                    android:gravity="center_vertical"
+                    android:text="@string/followup_type"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/tex_size_10" />
 
                 <TextView
                     android:id="@+id/tv_product"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/margin_15"
+                    android:layout_marginStart="@dimen/margin_4"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:paddingStart="@dimen/margin_10"
+                    android:paddingEnd="@dimen/margin_10"
                     android:layout_toEndOf="@+id/tv_label_product"
-                    android:textStyle="bold"
-                    android:gravity="start"
-                    android:text="@string/null_placeholder"
+                    android:gravity="center_vertical"
+                    android:text="@string/call"
                     android:textColor="@color/text_color"
-                    android:textSize="@dimen/tex_size_10" />
+                    android:textSize="@dimen/tex_size_10"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:id="@+id/lin_status"
@@ -109,7 +112,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="@dimen/margin_5"
                         android:text="@string/status"
@@ -150,11 +152,12 @@
                     android:layout_marginTop="@dimen/margin_10"
                     android:layout_marginBottom="@dimen/margin_10"
                     android:layout_toEndOf="@+id/tv_label_time"
+                    android:layout_marginStart="@dimen/margin_4"
                     android:gravity="start"
-                    android:textStyle="bold"
                     android:text="@string/placeholder"
                     android:textColor="@color/text_color"
-                    android:textSize="@dimen/tex_size_10" />
+                    android:textSize="@dimen/tex_size_10"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

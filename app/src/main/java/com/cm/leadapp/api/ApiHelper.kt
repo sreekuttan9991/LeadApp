@@ -25,27 +25,27 @@ import org.json.JSONObject
 
 interface ApiHelper {
 
-    fun getUser(email :String) : Flow<LoginResponse>
+    fun getUser(email: String): Flow<LoginResponse>
 
     fun getStatistics(saleId: String): Flow<StatisticsResponse>
 
-    fun getUpcomingFollowups(input: JSONObject, page: Int) : Flow<FollowupResponse>
+    fun getUpcomingFollowups(input: JSONObject, page: Int): Flow<FollowupResponse>
 
-    fun getMissedFollowups(saleId: String, page: Int) : Flow<FollowupResponse>
+    fun getMissedFollowups(saleId: String, page: Int): Flow<FollowupResponse>
 
-    fun getLeads(input: JSONObject, page: Int) : Flow<LeadResponse>
+    fun getLeads(input: JSONObject, page: Int): Flow<LeadResponse>
 
-    fun markAsCompleted(followupId: String) : Flow<MarkCompletedResponse>
+    fun markAsCompleted(followupId: String): Flow<MarkCompletedResponse>
 
-    fun getStatusList() : Flow<StatusResponse>
+    fun getStatusList(): Flow<StatusResponse>
 
-    fun addFollowups(inputs: JSONObject) : Flow<AddFollowupResponse>
+    fun addFollowups(inputs: JSONObject): Flow<AddFollowupResponse>
 
-    fun changeStatus(inputs: JSONObject) : Flow<ChangeStatusResponse>
+    fun changeStatus(inputs: JSONObject): Flow<ChangeStatusResponse>
 
-    fun getTimeline(leadId: String) : Flow<TimelineResponse>
+    fun getTimeline(leadId: String): Flow<TimelineResponse>
 
-    fun getAgentList() : Flow<AgentResponse>
+    fun getAgentList(): Flow<AgentResponse>
 
     fun changeAgent(saleId: String, leadId: String): Flow<ChangeAgentResponse>
 
@@ -59,11 +59,11 @@ interface ApiHelper {
 
     fun addNewLead(inputs: JSONObject): Flow<AddNewLeadResponse>
 
-    fun getClosedLeads(input: JSONObject, page: Int) : Flow<ClosedLeadsResponse>
+    fun getClosedLeads(input: JSONObject, page: Int): Flow<ClosedLeadsResponse>
 
-    fun trashLead(leadId: String) : Flow<TrashLeadResponse>
+    fun trashLead(leadId: String): Flow<TrashLeadResponse>
 
-    fun getSalesContacts(saleId: String) : Flow<SaleContactResponse>
+    fun getSalesContacts(saleId: String): Flow<SaleContactResponse>
 
-    fun syncCallHistory(inputs: JSONObject) : Flow<SyncResponse>
+    fun syncCallHistory(inputs: JSONObject): Flow<SyncResponse>
 }

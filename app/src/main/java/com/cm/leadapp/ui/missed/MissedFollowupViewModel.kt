@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.cachedIn
-import com.cm.leadapp.data.responsemodel.MarkCompletedResponse
 import com.cm.leadapp.data.pref.MySharedPref
 import com.cm.leadapp.data.repository.MissedFollowupsRepository
+import com.cm.leadapp.data.responsemodel.MarkCompletedResponse
 import com.cm.leadapp.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
@@ -17,7 +17,10 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class MissedFollowupViewModel  @Inject constructor(val repository: MissedFollowupsRepository, val pref: MySharedPref) : ViewModel(){
+class MissedFollowupViewModel @Inject constructor(
+    val repository: MissedFollowupsRepository,
+    val pref: MySharedPref
+) : ViewModel() {
 
     private val _markCompleteResp = MutableLiveData<Event<MarkCompletedResponse>>()
     val markCompleteResp = _markCompleteResp

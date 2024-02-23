@@ -13,14 +13,14 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
-import com.cm.leadapp.R
+import com.cm.kbslead.R
+import com.cm.kbslead.databinding.ActivityAddNewLeadBinding
 import com.cm.leadapp.data.responsemodel.Country
 import com.cm.leadapp.data.responsemodel.CustomerType
 import com.cm.leadapp.data.responsemodel.District
 import com.cm.leadapp.data.responsemodel.Products
 import com.cm.leadapp.data.responsemodel.Source
 import com.cm.leadapp.data.responsemodel.State
-import com.cm.leadapp.databinding.ActivityAddNewLeadBinding
 import com.cm.leadapp.ui.adapter.GeneralItemAdapter
 import com.cm.leadapp.util.GenUtils
 import com.cm.leadapp.util.GeneralItem
@@ -34,13 +34,13 @@ import java.util.Calendar
 @AndroidEntryPoint
 class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissListener {
 
-
     private lateinit var binding: ActivityAddNewLeadBinding
 
     private val viewModel: AddNewLeadViewModel by viewModels()
 
     private var name = ""
     private var phone = ""
+    private var phone1 = ""
     private var email = ""
     private var followupDate = ""
     private var productId = ""
@@ -103,7 +103,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
     }
 
     private fun setDateAndTime() {
-
         mYear = calendar.get(Calendar.YEAR)
         mMonth = calendar.get(Calendar.MONTH)
         mDay = calendar.get(Calendar.DAY_OF_MONTH)
@@ -123,7 +122,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
 
     private fun setupSpinners() {
         binding.apply {
-
             spinState.onItemSelectedListener = object : OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
@@ -211,9 +209,7 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
     }
 
     private fun setupObservers() {
-
         viewModel.apply {
-
             countryList.observe(this@AddNewLeadActivity) {
                 binding.apply {
 
@@ -290,18 +286,15 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                 loadingDialog.dismissDialog()
 
                 showAlert(it.status, it.message)
-
             }
         }
     }
 
     private fun getPreferredStatePosition(state: String): Int {
-
         for (i in 0 until stateArrList.size) {
             if (state.lowercase() == stateArrList[i].name?.lowercase())
                 return i
         }
-
         return 0
     }
 
@@ -311,7 +304,7 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
         builder.setTitle(status?.uppercase())
         builder.setMessage(message)
 
-        builder.setPositiveButton("OK") { dialog, which ->
+        builder.setPositiveButton("OK") { _, _ ->
             finish()
         }
         builder.show()
@@ -375,6 +368,7 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
 
                 name = etCustomerName.text.toString()
                 phone = etCustomerPhone.text.toString()
+                phone1 = etParentPhone.text.toString()
                 email = etCustomerEmail.text.toString()
                 touchDate = etLeadTouchDate.text.toString()
                 cost = etCost.text.toString()
@@ -384,6 +378,7 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                 viewModel.addNewLead(
                     name,
                     phone,
+                    phone1,
                     email,
                     followupDate,
                     productId,

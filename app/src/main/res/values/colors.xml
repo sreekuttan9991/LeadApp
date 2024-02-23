@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFC5CAE9</color>
-    <color name="purple_500">#FF3F51B5</color>
-    <color name="purple_700">#FF303F9F</color>
-    <color name="teal_200">#FFFF4081</color>
-    <color name="teal_700">#FFF50057</color>
+    <color name="purple_200">#E1BEE7</color>
+    <color name="purple_500">#9C27B0</color>
+    <color name="purple_700">#7B1FA2</color>
+    <color name="teal_200">#03dac5</color>
+    <color name="teal_700">#00796B</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_grey">#d6d6d6</color>
     <color name="text_color">#383333</color>
     <color name="yellow">#ddcc13</color>
     <color name="text_bg">#F8F6F9</color>
+    <color name="ic_launcher_background">#f6f6f6</color>
 
     <array name="stat_colors">
-        <item>#3598DC</item>
-        <item>#E7505A</item>
-        <item>#8E44AD</item>
-        <item>#03DAC5</item>
+        <item>#e10576</item>
+        <item>#3aa7e7</item>
+        <item>#93c241</item>
+        <item>#ee9526</item>
     </array>
 
 </resources>

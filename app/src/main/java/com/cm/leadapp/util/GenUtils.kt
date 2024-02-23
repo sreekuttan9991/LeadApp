@@ -12,10 +12,19 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import kotlin.collections.HashMap
 
-class GenUtils {
+object GenUtils {
 
-    companion object {
+    private val followupColorMap: HashMap<String, String> by lazy {
+        HashMap<String, String>().apply {
+            put("call", "#9DFAB3")
+            put("whatsapp", "#9BE892")
+            put("email", "#F0C58B")
+            put("meeting", "#FCCACA")
+        }
+    }
+
         fun callPhone(context: Context?, phone: String?) {
             val intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse("tel:$phone")
@@ -41,15 +50,20 @@ class GenUtils {
 
         fun setStatus(tv: TextView, status: String?) {
             tv.text = status
-            when (status?.lowercase()) {
-                "active" -> tv.setBackgroundColor(Color.parseColor("#ff4d4d"))
-                "closed" -> tv.setBackgroundColor(Color.parseColor("#ddcc13"))
-                "hot lead" -> tv.setBackgroundColor(Color.parseColor("#ff9933"))
-                "warm lead" -> tv.setBackgroundColor(Color.parseColor("#009933"))
-                "cold" -> tv.setBackgroundColor(Color.parseColor("#ddcc13"))
-                "following up" -> tv.setBackgroundColor(Color.parseColor("#000099"))
-                "pending" -> tv.setBackgroundColor(Color.parseColor("#e6b800"))
-                "quote" -> tv.setBackgroundColor(Color.parseColor("#00cc00"))
+            when (status?.lowercase()?.trim()?.replace(" ", "")) {
+                "applicationformsend" -> tv.setBackgroundColor(Color.parseColor("#FF8C00"))
+                "justenquiry" -> tv.setBackgroundColor(Color.parseColor("#8fbbef"))
+                "ring/callbusy" -> tv.setBackgroundColor(Color.parseColor("#9602e6"))
+                "delay" -> tv.setBackgroundColor(Color.parseColor("#f1cd0f"))
+                "partiallyinterested" -> tv.setBackgroundColor(Color.parseColor("#8fb97d"))
+                "interested" -> tv.setBackgroundColor(Color.parseColor("#37e602"))
+                "partiallyintrested" -> tv.setBackgroundColor(Color.parseColor("#8fb97d"))
+                "intrested" -> tv.setBackgroundColor(Color.parseColor("#37e602"))
+                "awaitingresponse" -> tv.setBackgroundColor(Color.parseColor("#404040"))
+                "switchoff" -> tv.setBackgroundColor(Color.parseColor("#a8dced"))
+                "notrelatedtomba" -> tv.setBackgroundColor(Color.parseColor("#027fe6"))
+                "kmatintrested" -> tv.setBackgroundColor(Color.parseColor("#e68b02"))
+                "kmatinterested" -> tv.setBackgroundColor(Color.parseColor("#e68b02"))
                 else -> tv.setBackgroundColor(Color.parseColor("#404040"))
             }
         }
@@ -124,8 +138,11 @@ class GenUtils {
             return formatter.format(calendar.time)
         }
 
-        fun hasPermissions(context: Context, permissions: Array<String>): Boolean = permissions.all {
-            ActivityCompat.checkSelfPermission(context, it) == PackageManager.PERMISSION_GRANTED
-        }
-    }
+        fun hasPermissions(context: Context, permissions: Array<String>): Boolean =
+            permissions.all {
+                ActivityCompat.checkSelfPermission(context, it) == PackageManager.PERMISSION_GRANTED
+            }
+
+        fun getFollowupColor(followupType: String?): String? =
+            followupColorMap[followupType?.lowercase()]
 }

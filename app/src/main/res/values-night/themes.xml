@@ -14,13 +14,12 @@
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="textInputLayout.greenLabel"
-        parent="Widget.Design.TextInputLayout">
+
+    <style name="textInputLayout.greenLabel" parent="Widget.Design.TextInputLayout">
         <item name="hintTextAppearance">@style/AppTheme.TextFloatLabelAppearance</item>
     </style>
 
-    <style name="AppTheme.TextFloatLabelAppearance"
-        parent="TextAppearance.Design.Hint">
+    <style name="AppTheme.TextFloatLabelAppearance" parent="TextAppearance.Design.Hint">
         <!-- Floating label appearance here -->
         <item name="android:textColor">@color/purple_700</item>
         <item name="android:textSize">@dimen/margin_15</item>

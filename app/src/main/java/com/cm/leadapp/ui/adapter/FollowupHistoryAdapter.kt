@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.cm.kbslead.databinding.ItemFollowupHistoryBinding
 import com.cm.leadapp.data.responsemodel.FollowUpHistory
-import com.cm.leadapp.databinding.ItemFollowupHistoryBinding
 
 class FollowupHistoryAdapter(
     private val values: List<FollowUpHistory>

@@ -5,7 +5,7 @@ import com.cm.leadapp.data.responsemodel.LeadDetailsResponse
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class LeadDetailsRepository @Inject constructor(private val apiHelper : ApiHelper) {
+class LeadDetailsRepository @Inject constructor(private val apiHelper: ApiHelper) {
 
-    fun getLeadDetails(leadId: String) : Flow<LeadDetailsResponse> = apiHelper.getLeadDetails(leadId)
+    fun getLeadDetails(leadId: String): Flow<LeadDetailsResponse> = apiHelper.getLeadDetails(leadId)
 }

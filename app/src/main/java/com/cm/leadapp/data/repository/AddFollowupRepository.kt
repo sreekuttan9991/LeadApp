@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.Flow
 import org.json.JSONObject
 import javax.inject.Inject
 
-class AddFollowupRepository @Inject constructor(private val apiHelper : ApiHelper) {
+class AddFollowupRepository @Inject constructor(private val apiHelper: ApiHelper) {
 
-    fun getStatusList() : Flow<StatusResponse> = apiHelper.getStatusList()
-    fun addFollowup(input: JSONObject) : Flow<AddFollowupResponse> = apiHelper.addFollowups(input)
+    fun getStatusList(): Flow<StatusResponse> = apiHelper.getStatusList()
+    fun addFollowup(input: JSONObject): Flow<AddFollowupResponse> = apiHelper.addFollowups(input)
 }

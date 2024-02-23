@@ -4,9 +4,9 @@ package com.cm.leadapp.ui.onboarding
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cm.leadapp.data.responsemodel.UserData
 import com.cm.leadapp.data.repository.LoginRepository
 import com.cm.leadapp.data.responsemodel.LoginResponse
+import com.cm.leadapp.data.responsemodel.UserData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn

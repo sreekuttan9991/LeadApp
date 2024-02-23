@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.cm.leadapp.R
+import com.cm.kbslead.R
 import com.cm.leadapp.data.responsemodel.CustomerType
 import com.cm.leadapp.data.responsemodel.District
 import com.cm.leadapp.data.responsemodel.Products
@@ -14,30 +14,34 @@ import com.cm.leadapp.data.responsemodel.Source
 import com.cm.leadapp.data.responsemodel.State
 import com.cm.leadapp.util.GeneralItem
 
-class GeneralItemAdapter(val context: Context, private var list: ArrayList<*>, private val type : GeneralItem) : BaseAdapter() {
+class GeneralItemAdapter(
+    val context: Context,
+    private var list: ArrayList<*>,
+    private val type: GeneralItem
+) : BaseAdapter() {
 
 
+    private val inflater: LayoutInflater =
+        context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
-        private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
-        override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-
-            val view: View
-            val vh: ItemHolder
-            if (convertView == null) {
-                view = inflater.inflate(R.layout.item_status, parent, false)
-                vh = ItemHolder(view)
-                view?.tag = vh
-            } else {
-                view = convertView
-                vh = view.tag as ItemHolder
-            }
-            vh.label.text = getItemName(position)
-
-            return view
+        val view: View
+        val vh: ItemHolder
+        if (convertView == null) {
+            view = inflater.inflate(R.layout.item_status, parent, false)
+            vh = ItemHolder(view)
+            view?.tag = vh
+        } else {
+            view = convertView
+            vh = view.tag as ItemHolder
         }
+        vh.label.text = getItemName(position)
 
-    private fun getItemName(pos: Int): String?{
+        return view
+    }
+
+    private fun getItemName(pos: Int): String? {
 
         return when (type) {
 
@@ -51,26 +55,26 @@ class GeneralItemAdapter(val context: Context, private var list: ArrayList<*>, p
 
     }
 
-        override fun getItem(position: Int): Any? {
-            return list[position];
-        }
-
-        override fun getCount(): Int {
-            return list.size;
-        }
-
-        override fun getItemId(position: Int): Long {
-            return position.toLong();
-        }
-
-        private class ItemHolder(row: View?) {
-            val label: TextView
-
-
-            init {
-                label = row?.findViewById(R.id.tv_status) as TextView
-
-            }
-        }
-
+    override fun getItem(position: Int): Any? {
+        return list[position]
     }
+
+    override fun getCount(): Int {
+        return list.size
+    }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    private class ItemHolder(row: View?) {
+        val label: TextView
+
+
+        init {
+            label = row?.findViewById(R.id.tv_status) as TextView
+
+        }
+    }
+
+}

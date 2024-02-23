@@ -5,7 +5,7 @@ import com.cm.leadapp.data.responsemodel.StatisticsResponse
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class StatisticsRepository @Inject constructor(private val apiHelper : ApiHelper) {
+class StatisticsRepository @Inject constructor(private val apiHelper: ApiHelper) {
 
-fun geStatistics(saleId : String) : Flow<StatisticsResponse> = apiHelper.getStatistics(saleId)
+    fun geStatistics(saleId: String): Flow<StatisticsResponse> = apiHelper.getStatistics(saleId)
 }

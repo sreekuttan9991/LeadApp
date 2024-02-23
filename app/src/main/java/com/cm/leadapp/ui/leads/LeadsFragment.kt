@@ -10,14 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cm.leadapp.ui.leaddetails.LeadDetailsActivity
-import com.cm.leadapp.R
+import com.cm.kbslead.R
+import com.cm.kbslead.databinding.FragmentLeadsBinding
 import com.cm.leadapp.data.responsemodel.LeadData
-import com.cm.leadapp.databinding.FragmentLeadsBinding
 import com.cm.leadapp.ui.action.LeadActionsActivity
 import com.cm.leadapp.ui.adapter.LeadsAdapter
+import com.cm.leadapp.ui.leaddetails.LeadDetailsActivity
 import com.cm.leadapp.util.GenUtils
 import com.cm.leadapp.util.LoadingDialog
 import com.cm.leadapp.util.OnLeadsItemClickListener
@@ -93,9 +92,9 @@ class LeadsFragment : Fragment(), OnLeadsItemClickListener {
                 }
 
                 override fun afterTextChanged(p0: Editable?) {
-                        keyWord = p0.toString()
-                        leadsViewModel.setCurrentRequest(statusId, customerCategory, keyWord)
-                        leadsAdapter.refresh()
+                    keyWord = p0.toString()
+                    leadsViewModel.setCurrentRequest(statusId, customerCategory, keyWord)
+                    leadsAdapter.refresh()
                 }
             })
         }
@@ -128,9 +127,6 @@ class LeadsFragment : Fragment(), OnLeadsItemClickListener {
         when (view?.id) {
             R.id.iv_call -> GenUtils.callPhone(context, lead?.phone)
             R.id.iv_whatsapp -> GenUtils.callWhatsApp(context, lead?.phone)
-            R.id.iv_trash -> {
-                moveToTrash(lead?.leadId)
-            }
             R.id.iv_edit -> {
                 bundle.putString("go_to", getString(R.string.change_status))
                 actionIntent.putExtras(bundle).run {

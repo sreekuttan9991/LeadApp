@@ -1,6 +1,5 @@
 package com.cm.leadapp.ui.addlead
 
-import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -81,7 +80,7 @@ class AddNewLeadViewModel @Inject constructor(
     }
 
     fun addNewLead(
-        name: String, phone: String, email: String, followupDate: String,
+        name: String, phone: String,phone1: String, email: String, followupDate: String,
         productId: String, cost: String, touchDate: String, sourceId: String,
         feedbackId: String, customerCategoryId: String, countryId: String,
         stateId: String, districtId: String, city: String
@@ -91,6 +90,7 @@ class AddNewLeadViewModel @Inject constructor(
         input.put("sales_id", pref.saleId)
         input.put("name", name)
         input.put("phone", phone)
+        input.put("user_phone1", phone1)
         input.put("email", email)
         input.put("followup_date", followupDate)
         input.put("product_id", productId)

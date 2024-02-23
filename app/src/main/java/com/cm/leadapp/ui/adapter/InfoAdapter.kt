@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.cm.kbslead.databinding.ItemInfoBinding
 import com.cm.leadapp.data.uimodel.Info
-import com.cm.leadapp.databinding.ItemInfoBinding
 
 class InfoAdapter(
     private val values: ArrayList<Info>

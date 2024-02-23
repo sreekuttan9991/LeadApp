@@ -21,14 +21,14 @@ import com.cm.leadapp.data.responsemodel.SyncResponse
 import com.cm.leadapp.data.responsemodel.TimelineResponse
 import com.cm.leadapp.data.responsemodel.TrashLeadResponse
 import com.cm.leadapp.util.InputUtil
-import com.cm.leadapp.util.InputUtil.Companion.getInputFromSaleIdAndLeadId
 import com.cm.leadapp.util.InputUtil.Companion.getFollowupsInput
+import com.cm.leadapp.util.InputUtil.Companion.getInputFromLeadId
+import com.cm.leadapp.util.InputUtil.Companion.getInputFromSaleIdAndLeadId
 import com.cm.leadapp.util.InputUtil.Companion.getLeadsInput
 import com.cm.leadapp.util.InputUtil.Companion.getLoginInputs
 import com.cm.leadapp.util.InputUtil.Companion.getMarkCompletedInput
 import com.cm.leadapp.util.InputUtil.Companion.getRequestBodyFromJsonObject
 import com.cm.leadapp.util.InputUtil.Companion.getStatisticsInputs
-import com.cm.leadapp.util.InputUtil.Companion.getInputFromLeadId
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import org.json.JSONObject

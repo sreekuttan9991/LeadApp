@@ -6,7 +6,6 @@
     app:startDestination="@+id/navigation_dashboard">
 
 
-
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.cm.leadapp.ui.dashboard.DashboardFragment"
@@ -29,7 +28,7 @@
         android:id="@+id/navigation_leads"
         android:name="com.cm.leadapp.ui.leads.LeadsFragment"
         android:label="@string/leads"
-        tools:layout="@layout/fragment_leads" >
+        tools:layout="@layout/fragment_leads">
 
     </fragment>
 
@@ -37,7 +36,7 @@
         android:id="@+id/navigation_closed_leads"
         android:name="com.cm.leadapp.ui.closed.ClosedLeadsFragment"
         android:label="@string/closed_leads"
-        tools:layout="@layout/fragment_closed_leads" >
+        tools:layout="@layout/fragment_closed_leads">
 
     </fragment>
 

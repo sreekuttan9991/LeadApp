@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.cm.kbslead.databinding.ItemStatisticsBinding
 import com.cm.leadapp.data.uimodel.Statistics
-import com.cm.leadapp.databinding.ItemStatisticsBinding
 import com.cm.leadapp.util.ResourceUtil
 
 class StatisticsAdapter(private val context: Context, private val mList: ArrayList<Statistics>) :

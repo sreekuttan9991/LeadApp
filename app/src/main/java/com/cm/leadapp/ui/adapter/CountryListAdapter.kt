@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.cm.kbslead.databinding.ItemStatusBinding
 import com.cm.leadapp.data.responsemodel.Country
-import com.cm.leadapp.databinding.ItemStatusBinding
 import com.cm.leadapp.util.OnCountryListItemClickListener
 
 class CountryListAdapter(private val onCountryListItemClickListener: OnCountryListItemClickListener) :
@@ -15,7 +15,7 @@ class CountryListAdapter(private val onCountryListItemClickListener: OnCountryLi
     private var mList = ArrayList<Country>()
     private var listFiltered = ArrayList<Country>()
 
-    fun setData(countryList: ArrayList<Country>){
+    fun setData(countryList: ArrayList<Country>) {
         this.mList = countryList
         this.listFiltered = countryList
     }
@@ -56,25 +56,24 @@ class CountryListAdapter(private val onCountryListItemClickListener: OnCountryLi
     override fun getFilter(): Filter {
 
 
-
-        return object : Filter(){
+        return object : Filter() {
             override fun performFiltering(charSequence: CharSequence?): FilterResults {
-                val filterResults =  FilterResults()
+                val filterResults = FilterResults()
 
-                if(charSequence.isNullOrEmpty()){
+                if (charSequence.isNullOrEmpty()) {
                     filterResults.count = listFiltered.size
                     filterResults.values = listFiltered
-                }else{
+                } else {
                     val searchChar = charSequence.toString().lowercase()
                     val itemModel = ArrayList<Country>()
-                    for (item in listFiltered){
-                        if(item.name!!.lowercase().contains(searchChar))
+                    for (item in listFiltered) {
+                        if (item.name!!.lowercase().contains(searchChar))
                             itemModel.add(item)
                     }
                     filterResults.count = itemModel.size
                     filterResults.values = itemModel
                 }
-                return  filterResults
+                return filterResults
             }
 
             override fun publishResults(charSequence: CharSequence?, results: FilterResults?) {

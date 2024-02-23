@@ -17,28 +17,29 @@ import org.json.JSONObject
 import javax.inject.Inject
 
 @HiltViewModel
-class ClosedLeadsViewModel @Inject constructor(val apiHelper: ApiHelper, val pref: MySharedPref) : ViewModel() {
+class ClosedLeadsViewModel @Inject constructor(val apiHelper: ApiHelper, val pref: MySharedPref) :
+    ViewModel() {
 
     private var _currentRequest = MutableLiveData<JSONObject>()
 
     val data = _currentRequest
         // Limit duplicate Requests (Request class should implement equals())
         .distinctUntilChanged()
-        .switchMap { inputs->
-           Pager (
-                    config = PagingConfig(pageSize = 20, maxSize = 100),
-            pagingSourceFactory = { ClosedLeadsPageSource(apiHelper, inputs) }
+        .switchMap { inputs ->
+            Pager(
+                config = PagingConfig(pageSize = 20, maxSize = 100),
+                pagingSourceFactory = { ClosedLeadsPageSource(apiHelper, inputs) }
 
             ).liveData.cachedIn(viewModelScope)
 
         }
 
-    fun setCurrentRequest(statusId: String, customerCategory: String, keyWord: String){
+    fun setCurrentRequest(statusId: String, customerCategory: String, keyWord: String) {
         val input = JSONObject()
-        input.put("sales_id",pref.saleId)
-        input.put("status_id",statusId)
-        input.put("customer_category",customerCategory)
-        input.put("keyword",keyWord)
+        input.put("sales_id", pref.saleId)
+        input.put("status_id", statusId)
+        input.put("customer_category", customerCategory)
+        input.put("keyword", keyWord)
         _currentRequest.postValue(input)
     }
 }

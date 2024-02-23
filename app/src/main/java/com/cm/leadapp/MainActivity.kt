@@ -16,11 +16,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.cm.kbslead.R
+import com.cm.kbslead.databinding.ActivityMainBinding
 import com.cm.leadapp.data.pref.MySharedPref
 import com.cm.leadapp.data.request.AddCallLogRequest
 import com.cm.leadapp.data.request.LeadCallLog
 import com.cm.leadapp.data.responsemodel.SaleContactData
-import com.cm.leadapp.databinding.ActivityMainBinding
 import com.cm.leadapp.ui.addlead.AddNewLeadActivity
 import com.cm.leadapp.util.GenUtils
 import com.cm.leadapp.util.LoadingDialog
@@ -28,7 +29,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 import javax.inject.Inject
-import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -141,6 +141,19 @@ class MainActivity : AppCompatActivity() {
                         )
                     )
                 }
+                scd.parentPhone?.let {
+                    if(lcl.phoneNumber.contains(it)) {
+                        contactsToSync.add(
+                            com.cm.leadapp.data.request.CallLog(
+                                date = GenUtils.getDate(lcl.date.toLong(), "dd-MM-yyyy"),
+                                duration = lcl.duration,
+                                lead_id = scd.leadId!!,
+                                phone = it,
+                                time = GenUtils.getDate(lcl.date.toLong(), "HH mm")
+                            )
+                        )
+                    }
+                }
             }
         }
         return contactsToSync
@@ -194,7 +207,7 @@ class MainActivity : AppCompatActivity() {
         builder.setTitle(status?.uppercase())
         builder.setMessage(message)
         builder.setCancelable(false)
-        builder.setPositiveButton("OK") { dialog, which ->
+        builder.setPositiveButton("OK") { dialog, _ ->
             dialog.dismiss()
         }
         builder.show()

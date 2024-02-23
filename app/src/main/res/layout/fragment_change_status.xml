@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
 
-    tools:context=".ui.common.ChangeStatusFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent"
+    tools:context=".ui.common.ChangeStatusFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,24 +31,24 @@
         <RelativeLayout
             android:id="@+id/spn_change_status"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/margin_5"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5"
             android:background="@drawable/edit_bg"
             android:padding="@dimen/margin_5">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_spinner_arrow"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_spinner_arrow" />
 
             <Spinner
                 android:id="@+id/spin_status"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_56"
-                android:background="@null"
                 android:layout_margin="@dimen/margin_5"
+                android:background="@null"
                 android:visibility="gone" />
 
             <ProgressBar
@@ -77,22 +77,23 @@
             android:background="@drawable/edit_bg"
             android:padding="@dimen/margin_5"
             android:visibility="gone">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_spinner_arrow"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_spinner_arrow" />
 
             <Spinner
                 android:id="@+id/spin_final_status"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_56"
-                android:background="@null"
                 android:layout_marginStart="@dimen/margin_5"
                 android:layout_marginTop="@dimen/margin_5"
                 android:layout_marginEnd="@dimen/margin_5"
                 android:layout_marginBottom="@dimen/margin_5"
+                android:background="@null"
                 android:visibility="visible" />
 
         </RelativeLayout>
@@ -117,10 +118,10 @@
                 android:id="@+id/et_invoice_number"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_56"
-                android:paddingStart="@dimen/margin_5"
-                android:paddingEnd="@dimen/margin_5"
                 android:layout_marginTop="@dimen/margin_5"
-                android:background="@drawable/edit_bg" />
+                android:background="@drawable/edit_bg"
+                android:paddingStart="@dimen/margin_5"
+                android:paddingEnd="@dimen/margin_5" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -134,10 +135,10 @@
                 android:id="@+id/et_models"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_56"
-                android:paddingStart="@dimen/margin_5"
-                android:paddingEnd="@dimen/margin_5"
                 android:layout_marginTop="@dimen/margin_5"
-                android:background="@drawable/edit_bg" />
+                android:background="@drawable/edit_bg"
+                android:paddingStart="@dimen/margin_5"
+                android:paddingEnd="@dimen/margin_5" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -151,10 +152,10 @@
                 android:id="@+id/et_invoice_value"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_56"
-                android:paddingStart="@dimen/margin_5"
-                android:paddingEnd="@dimen/margin_5"
                 android:layout_marginTop="@dimen/margin_5"
-                android:background="@drawable/edit_bg" />
+                android:background="@drawable/edit_bg"
+                android:paddingStart="@dimen/margin_5"
+                android:paddingEnd="@dimen/margin_5" />
 
 
         </LinearLayout>
@@ -178,10 +179,10 @@
                 android:id="@+id/et_brand_name"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_56"
-                android:paddingStart="@dimen/margin_5"
-                android:paddingEnd="@dimen/margin_5"
                 android:layout_marginTop="@dimen/margin_5"
-                android:background="@drawable/edit_bg" />
+                android:background="@drawable/edit_bg"
+                android:paddingStart="@dimen/margin_5"
+                android:paddingEnd="@dimen/margin_5" />
         </LinearLayout>
 
         <LinearLayout
@@ -203,13 +204,13 @@
                 android:id="@+id/et_reason"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_100"
-                android:paddingStart="@dimen/margin_5"
-                android:paddingEnd="@dimen/margin_5"
-                android:paddingTop="@dimen/margin_5"
-                android:inputType="textMultiLine"
                 android:layout_marginTop="@dimen/margin_5"
+                android:background="@drawable/edit_bg"
                 android:gravity="start"
-                android:background="@drawable/edit_bg" />
+                android:inputType="textMultiLine"
+                android:paddingStart="@dimen/margin_5"
+                android:paddingTop="@dimen/margin_5"
+                android:paddingEnd="@dimen/margin_5" />
         </LinearLayout>
 
 

@@ -12,10 +12,10 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import com.cm.kbslead.R
+import com.cm.kbslead.databinding.FragmentOtpBinding
 import com.cm.leadapp.MainActivity
-import com.cm.leadapp.R
 import com.cm.leadapp.data.pref.MySharedPref
-import com.cm.leadapp.databinding.FragmentOtpBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -139,7 +139,7 @@ class OtpFragment : Fragment() {
                     pref.userName = userName
                     startActivity(Intent(requireActivity(), MainActivity::class.java))
                     requireActivity().finish()
-                }else{
+                } else {
                     Toast.makeText(context, "Invalid OTP.", Toast.LENGTH_SHORT).show()
                 }
             }

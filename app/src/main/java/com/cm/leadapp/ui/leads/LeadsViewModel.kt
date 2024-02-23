@@ -23,7 +23,11 @@ import org.json.JSONObject
 import javax.inject.Inject
 
 @HiltViewModel
-class LeadsViewModel @Inject constructor(val apiHelper: ApiHelper, val repository: LeadsRepository, val pref: MySharedPref) : ViewModel() {
+class LeadsViewModel @Inject constructor(
+    val apiHelper: ApiHelper,
+    val repository: LeadsRepository,
+    val pref: MySharedPref
+) : ViewModel() {
 
     private var _currentRequest = MutableLiveData<JSONObject>()
 
@@ -33,8 +37,8 @@ class LeadsViewModel @Inject constructor(val apiHelper: ApiHelper, val repositor
     val data = _currentRequest
         // Limit duplicate Requests (Request class should implement equals())
         .distinctUntilChanged()
-        .switchMap { inputs->
-            Pager (
+        .switchMap { inputs ->
+            Pager(
                 config = PagingConfig(pageSize = 20, maxSize = 100),
                 pagingSourceFactory = { LeadsPageSource(apiHelper, inputs) }
 
@@ -42,16 +46,16 @@ class LeadsViewModel @Inject constructor(val apiHelper: ApiHelper, val repositor
 
         }
 
-    fun setCurrentRequest(statusId: String, customerCategory: String, keyWord: String){
+    fun setCurrentRequest(statusId: String, customerCategory: String, keyWord: String) {
         val input = JSONObject()
-        input.put("sales_id",pref.saleId)
-        input.put("status_id",statusId)
-        input.put("customer_category",customerCategory)
-        input.put("keyword",keyWord)
+        input.put("sales_id", pref.saleId)
+        input.put("status_id", statusId)
+        input.put("customer_category", customerCategory)
+        input.put("keyword", keyWord)
         _currentRequest.postValue(input)
     }
 
-    fun moveLeadToTrash(leadId: String){
+    fun moveLeadToTrash(leadId: String) {
         repository.trashLead(leadId).onEach {
             _trashLeadResp.value = Event(it)
         }.catch { println(it) }

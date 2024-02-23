@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
 
     <application
-        android:name=".LeadApplication"
+        android:name="com.cm.leadapp.LeadApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,10 +17,10 @@
         android:theme="@style/Theme.LeadApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.action.LeadActionsActivity"
+            android:name="com.cm.leadapp.ui.action.LeadActionsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.onboarding.OnboardingActivity"
+            android:name="com.cm.leadapp.ui.onboarding.OnboardingActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -35,13 +35,12 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data android:scheme="https" />
-                <data android:host="demo1.coreleads.in" />
+                <data android:host="crm.kbs.edu.in" />
                 <data android:pathPattern="/test" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ui.leaddetails.LeadDetailsActivity" />
-        <activity android:name=".ui.addlead.AddNewLeadActivity" />
+        <activity android:name="com.cm.leadapp.MainActivity" />
+        <activity android:name="com.cm.leadapp.ui.leaddetails.LeadDetailsActivity" />
+        <activity android:name="com.cm.leadapp.ui.addlead.AddNewLeadActivity" />
     </application>
-
 </manifest>

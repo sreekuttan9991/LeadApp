@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.cm.kbslead.databinding.ItemStatusBinding
 import com.cm.leadapp.data.responsemodel.Agent
-import com.cm.leadapp.databinding.ItemStatusBinding
 import com.cm.leadapp.util.OnAgentListItemClickListener
 
 class AgentListAdapter(private val onAgentListItemClickListener: OnAgentListItemClickListener) :
@@ -15,7 +15,7 @@ class AgentListAdapter(private val onAgentListItemClickListener: OnAgentListItem
     private var mList = ArrayList<Agent>()
     private var listFiltered = ArrayList<Agent>()
 
-    fun setData(agentList: ArrayList<Agent>){
+    fun setData(agentList: ArrayList<Agent>) {
         this.mList = agentList
         this.listFiltered = agentList
     }
@@ -56,25 +56,24 @@ class AgentListAdapter(private val onAgentListItemClickListener: OnAgentListItem
     override fun getFilter(): Filter {
 
 
-
-        return object : Filter(){
+        return object : Filter() {
             override fun performFiltering(charSequence: CharSequence?): FilterResults {
-                val filterResults =  FilterResults()
+                val filterResults = FilterResults()
 
-                if(charSequence.isNullOrEmpty()){
+                if (charSequence.isNullOrEmpty()) {
                     filterResults.count = listFiltered.size
                     filterResults.values = listFiltered
-                }else{
+                } else {
                     val searchChar = charSequence.toString().lowercase()
                     val itemModel = ArrayList<Agent>()
-                    for (item in listFiltered){
-                        if(item.name!!.lowercase().contains(searchChar))
+                    for (item in listFiltered) {
+                        if (item.name!!.lowercase().contains(searchChar))
                             itemModel.add(item)
                     }
                     filterResults.count = itemModel.size
                     filterResults.values = itemModel
                 }
-                return  filterResults
+                return filterResults
             }
 
             override fun publishResults(charSequence: CharSequence?, results: FilterResults?) {

@@ -1,12 +1,12 @@
 package com.cm.leadapp.ui.action
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.cm.leadapp.R
-import com.cm.leadapp.databinding.ActivityLeadActionsBinding
+import com.cm.kbslead.R
+import com.cm.kbslead.databinding.ActivityLeadActionsBinding
 import com.cm.leadapp.ui.common.ChangeStatusFragment
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -7,64 +7,64 @@ import org.json.JSONObject
 
 class InputUtil {
 
-    companion object{
+    companion object {
 
-        fun getLoginInputs(email : String) : RequestBody{
+        fun getLoginInputs(email: String): RequestBody {
             val input = JSONObject()
-            input.put("email",email)
+            input.put("email", email)
             return getRequestBodyFromJsonObject(input)
         }
 
-        fun getStatisticsInputs(saleId : String) : RequestBody{
+        fun getStatisticsInputs(saleId: String): RequestBody {
             val input = JSONObject()
-            input.put("sales_id",saleId)
+            input.put("sales_id", saleId)
             return getRequestBodyFromJsonObject(input)
         }
 
-        fun getFollowupsInput(saleId: String, pageNo: Int): RequestBody{
+        fun getFollowupsInput(saleId: String, pageNo: Int): RequestBody {
             val input = JSONObject()
-            input.put("sales_id",saleId)
+            input.put("sales_id", saleId)
             input.put("page_no", pageNo)
             return getRequestBodyFromJsonObject(input)
         }
 
-        fun getLeadsInput(input: JSONObject, pageNo: Int): RequestBody{
+        fun getLeadsInput(input: JSONObject, pageNo: Int): RequestBody {
             input.put("page_no", pageNo)
             return getRequestBodyFromJsonObject(input)
         }
 
-        fun getMarkCompletedInput(followupId: String) : RequestBody{
+        fun getMarkCompletedInput(followupId: String): RequestBody {
             val input = JSONObject()
-            input.put("followup_id",followupId)
+            input.put("followup_id", followupId)
             return getRequestBodyFromJsonObject(input)
         }
 
-        fun getInputFromLeadId(leadId: String) : RequestBody{
+        fun getInputFromLeadId(leadId: String): RequestBody {
             val input = JSONObject()
-            input.put("lead_id",leadId)
+            input.put("lead_id", leadId)
             return getRequestBodyFromJsonObject(input)
         }
 
-        fun getInputFromSaleIdAndLeadId(saleId: String, leadId: String) : RequestBody{
+        fun getInputFromSaleIdAndLeadId(saleId: String, leadId: String): RequestBody {
             val input = JSONObject()
-            input.put("sales_id",saleId)
-            input.put("lead_id",leadId)
+            input.put("sales_id", saleId)
+            input.put("lead_id", leadId)
             return getRequestBodyFromJsonObject(input)
         }
 
-        fun getStatesInput(countryId: String) : RequestBody{
+        fun getStatesInput(countryId: String): RequestBody {
             val input = JSONObject()
-            input.put("country_id",countryId)
+            input.put("country_id", countryId)
             return getRequestBodyFromJsonObject(input)
         }
 
-        fun getDistrictsInput(stateId: String) : RequestBody{
+        fun getDistrictsInput(stateId: String): RequestBody {
             val input = JSONObject()
-            input.put("state_id",stateId)
+            input.put("state_id", stateId)
             return getRequestBodyFromJsonObject(input)
         }
 
-        fun getRequestBodyFromJsonObject(input: JSONObject): RequestBody{
+        fun getRequestBodyFromJsonObject(input: JSONObject): RequestBody {
             return (input.toString()).toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
         }
     }

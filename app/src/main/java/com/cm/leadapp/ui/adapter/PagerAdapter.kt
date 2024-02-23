@@ -1,8 +1,8 @@
 package com.cm.leadapp.ui.adapter
 
-    import androidx.fragment.app.Fragment
-    import androidx.fragment.app.FragmentActivity
-    import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
 
 
 class PagerAdapter(activity: FragmentActivity?) : FragmentStateAdapter(activity!!) {
@@ -10,7 +10,7 @@ class PagerAdapter(activity: FragmentActivity?) : FragmentStateAdapter(activity!
     private val mFragmentList: MutableList<Fragment> = ArrayList()
     private val mFragmentTitleList: MutableList<String> = ArrayList()
 
-    fun getTabTitle(position : Int): String{
+    fun getTabTitle(position: Int): String {
         return mFragmentTitleList[position]
     }
 

@@ -29,7 +29,7 @@
         android:id="@+id/navigation_otp"
         android:name="com.cm.leadapp.ui.onboarding.OtpFragment"
         android:label="@string/otp"
-        tools:layout="@layout/fragment_otp" >
+        tools:layout="@layout/fragment_otp">
         <action
             android:id="@+id/action_otp_to_email"
             app:destination="@id/navigation_email" />

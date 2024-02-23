@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
-import com.cm.leadapp.R
-import com.cm.leadapp.databinding.FragmentEmailBinding
+import com.cm.kbslead.R
+import com.cm.kbslead.databinding.FragmentEmailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,10 +36,10 @@ class EmailFragment : Fragment() {
 
     private fun setupObservers() {
         viewModel.loginResponse.observe(viewLifecycleOwner) { resp ->
-            if(resp?.status.equals("success")){
+            if (resp?.status.equals("success")) {
                 binding.loadingIndicator.visibility = View.GONE
                 findNavController().navigate(R.id.navigation_otp)
-            }else{
+            } else {
                 binding.loadingIndicator.visibility = View.GONE
                 Toast.makeText(context, resp?.message, Toast.LENGTH_SHORT).show()
             }

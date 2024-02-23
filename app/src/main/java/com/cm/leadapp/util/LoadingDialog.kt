@@ -2,7 +2,7 @@ package com.cm.leadapp.util
 
 import android.app.Activity
 import androidx.appcompat.app.AlertDialog
-import com.cm.leadapp.R
+import com.cm.kbslead.R
 
 class LoadingDialog(private var activity: Activity?) {
 

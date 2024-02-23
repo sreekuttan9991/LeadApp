@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LeadApp</string>
+    <string name="app_name">KBS</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -46,9 +46,9 @@
     <string name="agent">Agent</string>
     <string name="select_agent">Select Agent</string>
     <string name="save">Save</string>
-    <string name="customer_name">Customer Name *</string>
-    <string name="customer_phone">Customer Phone *</string>
-    <string name="customer_email">Customer Email</string>
+    <string name="customer_name">Student Name *</string>
+    <string name="customer_phone">Student Phone *</string>
+    <string name="customer_email">Student Email</string>
     <string name="followup_date_time">Followup Date and Time</string>
     <string name="pick_date">Pick Date</string>
     <string name="pick_time">Pick Time</string>
@@ -73,6 +73,7 @@
     <string name="search_with">Search with name or phone.</string>
     <string name="completed">Completed</string>
     <string name="product">"Product: "</string>
+    <string name="followup_type">"Type: "</string>
     <string name="otp_not_received_label">Didn\'t receive the OTP?</string>
     <string name="no_item">No item found!</string>
     <string name="all">All</string>
@@ -80,7 +81,10 @@
     <string name="move_to_trash">Move to trash</string>
     <string name="greet">Hello,\n%1$s</string>
     <string name="sync">Sync</string>
-    <string name="please_wait">Please wait...</string>
+    <string name="please_wait">Please wait…</string>
     <string name="alert">Alert</string>
     <string name="no_data_sync">No data to sync now.</string>
+    <string name="gender">Gender</string>
+    <string name="parent_phone">Parent Phone</string>
+    <string name="call">Call</string>
 </resources>

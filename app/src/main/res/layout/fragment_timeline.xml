@@ -13,16 +13,15 @@
         android:layout_marginTop="@dimen/margin_10"
         android:scrollbars="none"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
+        android:id="@+id/progress_timeline"
         android:layout_width="@dimen/margin_70"
         android:layout_height="@dimen/margin_70"
-        android:id="@+id/progress_timeline"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

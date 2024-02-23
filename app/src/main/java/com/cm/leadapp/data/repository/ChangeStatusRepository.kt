@@ -7,9 +7,9 @@ import kotlinx.coroutines.flow.Flow
 import org.json.JSONObject
 import javax.inject.Inject
 
-class ChangeStatusRepository @Inject constructor(private val apiHelper : ApiHelper) {
+class ChangeStatusRepository @Inject constructor(private val apiHelper: ApiHelper) {
 
-    fun getStatusList() : Flow<StatusResponse> = apiHelper.getStatusList()
+    fun getStatusList(): Flow<StatusResponse> = apiHelper.getStatusList()
 
-    fun changeStatus(input: JSONObject) : Flow<ChangeStatusResponse> = apiHelper.changeStatus(input)
+    fun changeStatus(input: JSONObject): Flow<ChangeStatusResponse> = apiHelper.changeStatus(input)
 }
