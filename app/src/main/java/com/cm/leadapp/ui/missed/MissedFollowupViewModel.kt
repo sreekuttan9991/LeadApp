@@ -30,11 +30,9 @@ class MissedFollowupViewModel @Inject constructor(
         repository.getMissedFollowups(pref.saleId).cachedIn(viewModelScope)
 
     fun markAsCompleted(followupId: String) {
-
         repository.markAsCompleted(followupId).onEach {
             _markCompleteResp.value = Event(it)
         }.catch { println(it) }
             .launchIn(viewModelScope)
     }
-
 }

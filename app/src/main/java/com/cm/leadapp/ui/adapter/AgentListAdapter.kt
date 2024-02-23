@@ -21,7 +21,6 @@ class AgentListAdapter(private val onAgentListItemClickListener: OnAgentListItem
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
         return MyViewHolder(
             ItemStatusBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -35,7 +34,6 @@ class AgentListAdapter(private val onAgentListItemClickListener: OnAgentListItem
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
         val data = mList[position]
         holder.apply {
 
@@ -50,16 +48,12 @@ class AgentListAdapter(private val onAgentListItemClickListener: OnAgentListItem
     class MyViewHolder(val binding: ItemStatusBinding) : RecyclerView.ViewHolder(binding.root) {
 
         val tvName = binding.tvStatus
-
     }
 
     override fun getFilter(): Filter {
-
-
         return object : Filter() {
             override fun performFiltering(charSequence: CharSequence?): FilterResults {
                 val filterResults = FilterResults()
-
                 if (charSequence.isNullOrEmpty()) {
                     filterResults.count = listFiltered.size
                     filterResults.values = listFiltered
@@ -77,15 +71,10 @@ class AgentListAdapter(private val onAgentListItemClickListener: OnAgentListItem
             }
 
             override fun publishResults(charSequence: CharSequence?, results: FilterResults?) {
-
                 mList = results?.values as ArrayList<Agent>
-
                 notifyDataSetChanged()
-
             }
-
         }
-
     }
 }
 

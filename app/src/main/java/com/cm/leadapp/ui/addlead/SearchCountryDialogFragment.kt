@@ -41,7 +41,6 @@ class SearchCountryDialogFragment : DialogFragment(), OnCountryListItemClickList
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDialogSearchCountryBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 

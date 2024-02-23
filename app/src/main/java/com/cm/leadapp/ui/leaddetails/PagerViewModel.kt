@@ -30,9 +30,7 @@ class PagerViewModel @Inject constructor(private val leadDetailsRepository: Lead
     private val uiMapper = InfoUiMapper()
 
     fun viewLeadDetails(leadId: String) {
-
         leadDetailsRepository.getLeadDetails(leadId).onEach {
-
             _basicInfoData.value = Event(uiMapper.getBasicInfo(it.data!!.contactDetails))
             _followupInfoData.value = Event(uiMapper.getFollowupInfo(it.data!!.contactDetails))
             _followupHistoryList.value = Event(it.data!!.followUpHistory)
@@ -40,5 +38,4 @@ class PagerViewModel @Inject constructor(private val leadDetailsRepository: Lead
         }.catch { println(it) }
             .launchIn(viewModelScope)
     }
-
 }

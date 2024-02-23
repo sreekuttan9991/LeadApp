@@ -12,7 +12,6 @@ import com.cm.leadapp.data.responsemodel.LeadData
 import com.cm.leadapp.util.GenUtils
 import com.cm.leadapp.util.OnLeadsItemClickListener
 import com.cm.leadapp.util.firstCapital
-import java.util.Locale
 
 class LeadsAdapter(private val leadsItemClickListener: OnLeadsItemClickListener) :
     PagingDataAdapter<LeadData, LeadsAdapter.LeadsViewHolder>(COMPARATOR) {
@@ -43,7 +42,6 @@ class LeadsAdapter(private val leadsItemClickListener: OnLeadsItemClickListener)
                 txtTouchDate.text = it.touchDate
                 GenUtils.setStatus(txtStatus, it.status)
             }
-
             imgCall.setOnClickListener(this)
             imgWhatsapp.setOnClickListener(this)
             imgChangeStatus.setOnClickListener(this)
@@ -51,7 +49,6 @@ class LeadsAdapter(private val leadsItemClickListener: OnLeadsItemClickListener)
             imgChangeAgent.setOnClickListener(this)
             imgTimeLine.setOnClickListener(this)
             imgView.setOnClickListener(this)
-
             imgDown.setOnClickListener {
                 if (it.rotation == 0f) {
                     it.rotation = 180f

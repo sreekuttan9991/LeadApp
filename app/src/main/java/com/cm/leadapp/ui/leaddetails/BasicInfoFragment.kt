@@ -14,7 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class BasicInfoFragment : Fragment() {
 
-
     private var _binding: FragmentBasicInfoBinding? = null
 
     // This property is only valid between onCreateView and
@@ -26,10 +25,7 @@ class BasicInfoFragment : Fragment() {
     private lateinit var infoAdapter: InfoAdapter
 
     companion object {
-
-
         fun newInstance(leadId: String) = BasicInfoFragment().apply {
-
             arguments = Bundle().apply {
                 putString("lead_id", leadId)
             }
@@ -40,25 +36,19 @@ class BasicInfoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.let {
             leadId = it.getString("lead_id")
         }
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentBasicInfoBinding.inflate(inflater, container, false)
-
         setupList()
         setupObserver()
-
         viewModel.viewLeadDetails(leadId!!)
-
         return binding.root
     }
 
@@ -72,13 +62,9 @@ class BasicInfoFragment : Fragment() {
     private fun setupObserver() {
         viewModel.basicInfoData.observe(viewLifecycleOwner) {
             binding.progressInfo.visibility = View.GONE
-
             it.getContentIfNotHandled()?.let { infoList ->
-
                 infoAdapter = InfoAdapter(infoList)
-
                 binding.rvBasicInfo.adapter = infoAdapter
-
             }
         }
     }
@@ -87,5 +73,4 @@ class BasicInfoFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

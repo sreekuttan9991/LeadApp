@@ -17,7 +17,7 @@ class ClosedLeadsAdapter(private val onClosedLeadsItemClickListener: OnClosedLea
 
     class ClosedLeadsViewHolder(
         val binding: ItemClosedLeadsBinding,
-        val itemClickListener: OnClosedLeadsItemClickListener
+        private val itemClickListener: OnClosedLeadsItemClickListener
     ) : RecyclerView.ViewHolder(binding.root), OnClickListener {
 
         private val txtClientName = binding.tvClient

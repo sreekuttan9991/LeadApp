@@ -22,7 +22,6 @@ import com.cm.leadapp.util.StatusType
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 
-
 @AndroidEntryPoint
 class AddFollowupFragment : Fragment() {
 
@@ -182,7 +181,6 @@ class AddFollowupFragment : Fragment() {
         }
         builder.show()
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

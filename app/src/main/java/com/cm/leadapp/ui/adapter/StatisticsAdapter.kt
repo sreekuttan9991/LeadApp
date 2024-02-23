@@ -11,9 +11,7 @@ import com.cm.leadapp.util.ResourceUtil
 class StatisticsAdapter(private val context: Context, private val mList: ArrayList<Statistics>) :
     RecyclerView.Adapter<StatisticsAdapter.MyViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
         return MyViewHolder(
             ItemStatisticsBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -27,10 +25,8 @@ class StatisticsAdapter(private val context: Context, private val mList: ArrayLi
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
         val data = mList[position]
         holder.apply {
-
             titleText.text = data.title
             valueText.text = data.value
             cardView.setCardBackgroundColor(ResourceUtil.getRandomColor(context))

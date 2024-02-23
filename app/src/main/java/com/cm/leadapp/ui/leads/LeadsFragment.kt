@@ -123,7 +123,6 @@ class LeadsFragment : Fragment(), OnLeadsItemClickListener {
         val actionIntent: Intent by lazy {
             Intent(requireActivity(), LeadActionsActivity::class.java)
         }
-
         when (view?.id) {
             R.id.iv_call -> GenUtils.callPhone(context, lead?.phone)
             R.id.iv_whatsapp -> GenUtils.callWhatsApp(context, lead?.phone)

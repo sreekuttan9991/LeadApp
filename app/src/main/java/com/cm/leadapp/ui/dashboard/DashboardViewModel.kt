@@ -19,11 +19,9 @@ class DashboardViewModel @Inject constructor(private val statisticsRepository: S
     private val _statsData = MutableLiveData<ArrayList<Statistics>>()
     val statsData = _statsData
 
-
     private val mapper = StatisticsUiMapper()
 
     fun getUserData(saleId: String) {
-
         statisticsRepository.geStatistics(saleId).onEach {
             _statsData.value = mapper.getStatsList(it.statsData)
         }

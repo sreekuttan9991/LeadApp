@@ -33,13 +33,9 @@ class FollowupHistoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentFollowupHistoryBinding.inflate(inflater, container, false)
-
         setupList()
         setupObserver()
-
-
         return binding.root
     }
 
@@ -47,19 +43,16 @@ class FollowupHistoryFragment : Fragment() {
         viewModel.followupHistoryList.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { hisList ->
                 followupHistoryAdapter = FollowupHistoryAdapter(hisList)
-
                 binding.rvFollowupHistory.adapter = followupHistoryAdapter
             }
         }
     }
 
     private fun setupList() {
-
         binding.rvFollowupHistory.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
         }
-
     }
 
     override fun onDestroyView() {

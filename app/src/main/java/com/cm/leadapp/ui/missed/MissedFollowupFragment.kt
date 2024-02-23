@@ -102,7 +102,6 @@ class MissedFollowupFragment : Fragment(), OnFollowupsItemClickListener {
         val actionIntent: Intent by lazy {
             Intent(requireActivity(), LeadActionsActivity::class.java)
         }
-
         when (view?.id) {
             R.id.iv_call -> GenUtils.callPhone(context, followup?.phone)
             R.id.iv_whatsapp -> GenUtils.callWhatsApp(context, followup?.phone)

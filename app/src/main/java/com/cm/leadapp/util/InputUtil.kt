@@ -8,7 +8,6 @@ import org.json.JSONObject
 class InputUtil {
 
     companion object {
-
         fun getLoginInputs(email: String): RequestBody {
             val input = JSONObject()
             input.put("email", email)

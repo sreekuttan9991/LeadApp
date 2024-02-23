@@ -80,12 +80,11 @@ class AddNewLeadViewModel @Inject constructor(
     }
 
     fun addNewLead(
-        name: String, phone: String,phone1: String, email: String, followupDate: String,
+        name: String, phone: String, phone1: String, email: String, followupDate: String,
         productId: String, cost: String, touchDate: String, sourceId: String,
         feedbackId: String, customerCategoryId: String, countryId: String,
         stateId: String, districtId: String, city: String
     ) {
-
         val input = JSONObject()
         input.put("sales_id", pref.saleId)
         input.put("name", name)
@@ -103,7 +102,6 @@ class AddNewLeadViewModel @Inject constructor(
         input.put("state_id", stateId)
         input.put("city_id", districtId)
         input.put("city", city)
-
         repository.addNewLead(input).onEach {
             _addNewLeadResponse.value = it
 

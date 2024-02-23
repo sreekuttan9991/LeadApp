@@ -21,7 +21,6 @@ class CountryListAdapter(private val onCountryListItemClickListener: OnCountryLi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
         return MyViewHolder(
             ItemStatusBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -35,12 +34,9 @@ class CountryListAdapter(private val onCountryListItemClickListener: OnCountryLi
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
         val data = mList[position]
         holder.apply {
-
             tvName.text = data.name
-
             itemView.setOnClickListener {
                 onCountryListItemClickListener.onItemClick(data)
             }
@@ -50,16 +46,12 @@ class CountryListAdapter(private val onCountryListItemClickListener: OnCountryLi
     class MyViewHolder(val binding: ItemStatusBinding) : RecyclerView.ViewHolder(binding.root) {
 
         val tvName = binding.tvStatus
-
     }
 
     override fun getFilter(): Filter {
-
-
         return object : Filter() {
             override fun performFiltering(charSequence: CharSequence?): FilterResults {
                 val filterResults = FilterResults()
-
                 if (charSequence.isNullOrEmpty()) {
                     filterResults.count = listFiltered.size
                     filterResults.values = listFiltered
@@ -77,15 +69,10 @@ class CountryListAdapter(private val onCountryListItemClickListener: OnCountryLi
             }
 
             override fun publishResults(charSequence: CharSequence?, results: FilterResults?) {
-
                 mList = results?.values as ArrayList<Country>
-
                 notifyDataSetChanged()
-
             }
-
         }
-
     }
 }
 

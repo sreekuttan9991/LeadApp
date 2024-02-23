@@ -34,10 +34,8 @@ class FollowupInfoFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentFollowupInfoBinding.inflate(inflater, container, false)
-
         setupList()
         setupObserver()
-
         return binding.root
     }
 
@@ -45,25 +43,20 @@ class FollowupInfoFragment : Fragment() {
         viewModel.followupInfoData.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { infoList ->
                 infoAdapter = InfoAdapter(infoList)
-
                 binding.rvFollowupInfo.adapter = infoAdapter
             }
         }
     }
 
     private fun setupList() {
-
         binding.rvFollowupInfo.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
         }
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }

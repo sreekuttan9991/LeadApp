@@ -20,16 +20,13 @@ class ChangeStatusViewModel @Inject constructor(
     val pref: MySharedPref
 ) : ViewModel() {
 
-
     private val _statusData = MutableLiveData<StatusData>()
     val statusData = _statusData
 
     private val _changeStatusResponse = MutableLiveData<ChangeStatusResponse>()
     val changeStatusResponse = _changeStatusResponse
 
-
     fun getStatusData() {
-
         repository.getStatusList().onEach {
             _statusData.value = it.data!!
         }
@@ -41,7 +38,6 @@ class ChangeStatusViewModel @Inject constructor(
         leadId: String, statusId: String, finalStatus: String, invoiceNo: String,
         models: String, invoiceValue: String, brandName: String, reason: String
     ) {
-
         val input = JSONObject()
         input.put("sales_id", pref.saleId)
         input.put("lead_id", leadId)
@@ -52,12 +48,10 @@ class ChangeStatusViewModel @Inject constructor(
         input.put("invoice_value", invoiceValue)
         input.put("brand_name", brandName)
         input.put("reason", reason)
-
         repository.changeStatus(input).onEach {
             _changeStatusResponse.value = it
         }
             .catch { println(it) }
             .launchIn(viewModelScope)
     }
-
 }

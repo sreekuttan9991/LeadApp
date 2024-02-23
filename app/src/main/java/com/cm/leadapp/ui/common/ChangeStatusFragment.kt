@@ -93,9 +93,7 @@ class ChangeStatusFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-
                 statusId = statusList[position].id.toString()
-
                 if (statusId == "2") {
                     binding.apply {
                         tvLabelFinalStatus.visibility = View.VISIBLE
@@ -120,9 +118,7 @@ class ChangeStatusFragment : Fragment() {
                     position: Int,
                     id: Long
                 ) {
-
                     finalStatusId = finalStatusList[position].id.toString()
-
                     when (finalStatusId) {
                         "1" -> {
                             showGlenPurchaseView()
@@ -183,13 +179,10 @@ class ChangeStatusFragment : Fragment() {
         changeStatusViewModel.statusData.observe(viewLifecycleOwner) {
             binding.progressChangeStatus.visibility = View.GONE
             binding.spinStatus.visibility = View.VISIBLE
-
             statusList = it.status
             finalStatusList = it.finalStatus
-
             statusAdapter = StatusAdapter(requireContext(), it, StatusType.STATUS)
             finalStatusAdapter = StatusAdapter(requireContext(), it, StatusType.FINAL_STATUS)
-
             binding.spinStatus.adapter = statusAdapter
         }
 

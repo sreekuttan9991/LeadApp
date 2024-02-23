@@ -12,7 +12,6 @@ class InfoAdapter(
 ) : RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
         return ViewHolder(
             ItemInfoBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -30,7 +29,6 @@ class InfoAdapter(
                 tvName.text = name
                 tvValue.text = value
             }
-
         }
     }
 
@@ -42,5 +40,4 @@ class InfoAdapter(
         val tvName: TextView = binding.tvName
         val tvValue: TextView = binding.tvValue
     }
-
 }

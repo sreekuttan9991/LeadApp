@@ -19,7 +19,6 @@ class OnboardingViewModel @Inject constructor(private val repository: LoginRepos
     ViewModel() {
 
     private val _userData = MutableLiveData<UserData?>()
-    val userData = _userData
 
     private val _loginResponse = MutableLiveData<LoginResponse?>()
     val loginResponse = _loginResponse

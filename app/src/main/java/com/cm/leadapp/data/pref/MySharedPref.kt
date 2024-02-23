@@ -55,7 +55,6 @@ class MySharedPref @Inject constructor(@ApplicationContext val context: Context)
 
     private fun saveString(key: String, value: String) {
         editor.putString(key, value).apply()
-
     }
 
     private fun getString(key: String, defaultValue: String = ""): String {

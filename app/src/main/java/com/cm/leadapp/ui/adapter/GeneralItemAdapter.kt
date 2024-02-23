@@ -20,12 +20,10 @@ class GeneralItemAdapter(
     private val type: GeneralItem
 ) : BaseAdapter() {
 
-
     private val inflater: LayoutInflater =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-
         val view: View
         val vh: ItemHolder
         if (convertView == null) {
@@ -42,17 +40,13 @@ class GeneralItemAdapter(
     }
 
     private fun getItemName(pos: Int): String? {
-
         return when (type) {
-
             GeneralItem.STATE -> (list[pos] as State).name
             GeneralItem.DISTRICT -> (list[pos] as District).name
             GeneralItem.CUSTOMER -> (list[pos] as CustomerType).name
             GeneralItem.SOURCE -> (list[pos] as Source).name
             GeneralItem.PRODUCT -> (list[pos] as Products).name
         }
-
-
     }
 
     override fun getItem(position: Int): Any? {
@@ -68,13 +62,11 @@ class GeneralItemAdapter(
     }
 
     private class ItemHolder(row: View?) {
-        val label: TextView
 
+        val label: TextView
 
         init {
             label = row?.findViewById(R.id.tv_status) as TextView
-
         }
     }
-
 }

@@ -51,7 +51,6 @@ class SplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
-
         if (GenUtils.hasPermissions(requireActivity() as Context, permission)) {
             navigate()
         } else {

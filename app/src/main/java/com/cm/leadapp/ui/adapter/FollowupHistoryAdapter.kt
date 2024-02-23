@@ -12,7 +12,6 @@ class FollowupHistoryAdapter(
 ) : RecyclerView.Adapter<FollowupHistoryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
         return ViewHolder(
             ItemFollowupHistoryBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -20,7 +19,6 @@ class FollowupHistoryAdapter(
                 false
             )
         )
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -31,7 +29,6 @@ class FollowupHistoryAdapter(
                 tvType.text = type
                 tvRemarks.text = remark
             }
-
         }
     }
 
@@ -42,7 +39,5 @@ class FollowupHistoryAdapter(
         val tvFollowupDate: TextView = binding.tvFollowupDate
         val tvType: TextView = binding.tvType
         val tvRemarks: TextView = binding.tvRemarks
-
     }
-
 }

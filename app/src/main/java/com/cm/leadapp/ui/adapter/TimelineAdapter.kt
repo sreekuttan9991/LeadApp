@@ -10,9 +10,7 @@ import com.cm.leadapp.data.responsemodel.TimelineData
 class TimelineAdapter(private val mList: ArrayList<TimelineData>) :
     RecyclerView.Adapter<TimelineAdapter.MyViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
         return MyViewHolder(
             ItemTimelineBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -26,14 +24,11 @@ class TimelineAdapter(private val mList: ArrayList<TimelineData>) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
         val data = mList[position]
         holder.apply {
-
             tvDate.text = data.date
             tvGroupName.text = data.groupName
             tvMessage.text = getHtml(data.message!!)
-
         }
     }
 
@@ -47,5 +42,4 @@ class TimelineAdapter(private val mList: ArrayList<TimelineData>) :
     private fun getHtml(htmlBody: String): String {
         return Html.fromHtml(htmlBody, Html.FROM_HTML_MODE_LEGACY).toString()
     }
-
 }

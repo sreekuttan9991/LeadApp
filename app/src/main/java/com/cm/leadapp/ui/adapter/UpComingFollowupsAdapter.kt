@@ -50,7 +50,6 @@ class UpComingFollowupsAdapter(private val followupsItemClickListener: OnFollowu
                 txtType.setBackgroundColor(Color.parseColor(GenUtils.getFollowupColor(it.followupType)))
                 txtTime.text = it.followupDate
                 GenUtils.setStatus(txtStatus, it.status)
-
                 if (it.isCompleted.equals("Completed")) {
                     imgMarkCompleted.apply {
                         setImageResource(R.drawable.ic_tick_green)
@@ -67,7 +66,6 @@ class UpComingFollowupsAdapter(private val followupsItemClickListener: OnFollowu
             imgTimeLine.setOnClickListener(this)
             imgChangeAgent.setOnClickListener(this)
             imgView.setOnClickListener(this)
-
             imgDown.setOnClickListener {
                 if (it.rotation == 0f) {
                     it.rotation = 180f

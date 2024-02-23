@@ -30,7 +30,7 @@ import retrofit2.http.POST
 interface LeadApiInterface {
 
     companion object {
-        const val BASE_URL = "https:/demo2.coreleads.in/token/user_api/"
+        const val BASE_URL = "https:/crm.kbs.edu.in/token/user_api/"
 
         // PROD: https://crm.kbs.edu.in/
         // STAGING : https://core.coreleads.in/

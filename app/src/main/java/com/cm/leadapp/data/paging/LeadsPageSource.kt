@@ -7,7 +7,6 @@ import com.cm.leadapp.data.responsemodel.LeadData
 import kotlinx.coroutines.flow.collectLatest
 import org.json.JSONObject
 
-
 class LeadsPageSource(private val apiHelper: ApiHelper, private val input: JSONObject) :
     PagingSource<Int, LeadData>() {
     override fun getRefreshKey(state: PagingState<Int, LeadData>): Int? {
@@ -18,7 +17,6 @@ class LeadsPageSource(private val apiHelper: ApiHelper, private val input: JSONO
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, LeadData> {
-
         return try {
             val position = params.key ?: 1
             val response = apiHelper.getLeads(input, position)

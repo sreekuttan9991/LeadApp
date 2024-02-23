@@ -79,21 +79,16 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityAddNewLeadBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         val actionBar: ActionBar? = supportActionBar
-
         actionBar?.apply {
             title = getString(R.string.new_lead)
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
-
         loadingDialog = LoadingDialog(this)
         calendar = Calendar.getInstance()
-
         setupListeners()
         setupSpinners()
         setDateAndTime()
@@ -103,21 +98,20 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
     }
 
     private fun setDateAndTime() {
-        mYear = calendar.get(Calendar.YEAR)
-        mMonth = calendar.get(Calendar.MONTH)
-        mDay = calendar.get(Calendar.DAY_OF_MONTH)
-        mHour = calendar.get(Calendar.HOUR_OF_DAY)
-        mMinute = calendar.get(Calendar.MINUTE)
-
-        val date = GenUtils.getConvertedDate(calendar, mYear, mMonth, mDay, pattern = "dd/MM/yyyy")
-
-        binding.etLeadTouchDate.setText(date)
-        binding.etFollowupDate.setText(date)
-        followupDate = GenUtils.getFollowupDate(calendar, mYear, mMonth, mDay, mHour, mMinute)
-
-        val time = GenUtils.getConvertedTime(calendar, mHour, mMinute)
-
-        binding.etFollowupTime.setText(time)
+        binding.apply {
+            mYear = calendar.get(Calendar.YEAR)
+            mMonth = calendar.get(Calendar.MONTH)
+            mDay = calendar.get(Calendar.DAY_OF_MONTH)
+            mHour = calendar.get(Calendar.HOUR_OF_DAY)
+            mMinute = calendar.get(Calendar.MINUTE)
+            val date =
+                GenUtils.getConvertedDate(calendar, mYear, mMonth, mDay, pattern = "dd/MM/yyyy")
+            etLeadTouchDate.setText(date)
+            etFollowupDate.setText(date)
+            followupDate = GenUtils.getFollowupDate(calendar, mYear, mMonth, mDay, mHour, mMinute)
+            val time = GenUtils.getConvertedTime(calendar, mHour, mMinute)
+            etFollowupTime.setText(time)
+        }
     }
 
     private fun setupSpinners() {
@@ -130,10 +124,9 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                     id: Long
                 ) {
                     stateId = stateArrList[position].id.toString()
-
-                    if (binding.progressDistrict.visibility != View.VISIBLE)
+                    if (binding.progressDistrict.visibility != View.VISIBLE) {
                         binding.progressDistrict.visibility = View.VISIBLE
-
+                    }
                     viewModel.getDistricts(stateId)
                 }
 
@@ -148,7 +141,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                     position: Int,
                     id: Long
                 ) {
-
                     districtId = districtArrList[position].id.toString()
                 }
 
@@ -164,7 +156,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                     position: Int,
                     id: Long
                 ) {
-
                     sourceId = sourceArrList[position].id.toString()
                 }
 
@@ -180,7 +171,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                     position: Int,
                     id: Long
                 ) {
-
                     productId = productArrList[position].id.toString()
                 }
 
@@ -197,7 +187,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                     position: Int,
                     id: Long
                 ) {
-
                     customerCategoryId = customerArrList[position].id.toString()
                 }
 
@@ -212,15 +201,13 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
         viewModel.apply {
             countryList.observe(this@AddNewLeadActivity) {
                 binding.apply {
-
                     progressNewLead.visibility = View.GONE
                     scrollView.visibility = View.VISIBLE
-
                     tvSelectedCountry.text = getString(R.string.india)
 
-                    if (binding.progressState.visibility != View.VISIBLE)
-                        binding.progressState.visibility = View.VISIBLE
-
+                    if (progressState.visibility != View.VISIBLE) {
+                        progressState.visibility = View.VISIBLE
+                    }
                     viewModel.getStates(countryId)
                 }
             }
@@ -236,7 +223,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
             }
 
             sourceList.observe(this@AddNewLeadActivity) {
-
                 sourceArrList = it
                 sourceAdapter =
                     GeneralItemAdapter(this@AddNewLeadActivity, sourceArrList, GeneralItem.SOURCE)
@@ -244,7 +230,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
             }
 
             productList.observe(this@AddNewLeadActivity) {
-
                 productArrList = it
                 productAdapter =
                     GeneralItemAdapter(this@AddNewLeadActivity, productArrList, GeneralItem.PRODUCT)
@@ -252,23 +237,20 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
             }
 
             stateList.observe(this@AddNewLeadActivity) {
-
-                if (binding.progressState.visibility == View.VISIBLE)
+                if (binding.progressState.visibility == View.VISIBLE) {
                     binding.progressState.visibility = View.INVISIBLE
-
+                }
                 stateArrList = it
                 stateAdapter =
                     GeneralItemAdapter(this@AddNewLeadActivity, stateArrList, GeneralItem.STATE)
-
                 binding.spinState.adapter = stateAdapter
                 binding.spinState.setSelection(getPreferredStatePosition("KERALA"))
             }
 
             districtList.observe(this@AddNewLeadActivity) {
-
-                if (binding.progressDistrict.visibility == View.VISIBLE)
+                if (binding.progressDistrict.visibility == View.VISIBLE) {
                     binding.progressDistrict.visibility = View.INVISIBLE
-
+                }
                 districtArrList = it
                 districtAdapter = GeneralItemAdapter(
                     this@AddNewLeadActivity,
@@ -276,15 +258,10 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                     GeneralItem.DISTRICT
                 )
                 binding.spinDistrict.adapter = districtAdapter
-
             }
 
             addNewLeadResponse.observe(this@AddNewLeadActivity) {
-
-                println(it.message)
-
                 loadingDialog.dismissDialog()
-
                 showAlert(it.status, it.message)
             }
         }
@@ -299,11 +276,9 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
     }
 
     private fun showAlert(status: String?, message: String?) {
-
         val builder = AlertDialog.Builder(this)
         builder.setTitle(status?.uppercase())
         builder.setMessage(message)
-
         builder.setPositiveButton("OK") { _, _ ->
             finish()
         }
@@ -320,7 +295,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
 
     private fun activateButtonClick(value: Boolean) {
         binding.btnSave.apply {
-
             isClickable = value
             alpha = when (value) {
                 true -> 1f
@@ -331,41 +305,31 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
 
     private fun setupListeners() {
         binding.apply {
-
             etCustomerName.addTextChangedListener {
                 viewModel.setCustomerName(it.toString())
             }
-
             etCustomerPhone.addTextChangedListener {
                 viewModel.setCustomerPhone(it.toString())
             }
             etCity.addTextChangedListener {
                 viewModel.setCity(it.toString())
             }
-
             tvSelectedCountry.setOnClickListener {
                 val dialog = SearchCountryDialogFragment.newInstance()
-
                 dialog.setDismissListener(this@AddNewLeadActivity)
-
                 dialog.show(supportFragmentManager, "select_country")
             }
-
             ivCalendar.setOnClickListener {
                 launchDatePicker(etLeadTouchDate.id)
             }
-
             ivFollowupCalendar.setOnClickListener {
                 launchDatePicker(etFollowupDate.id)
             }
-
             ivFollowupClock.setOnClickListener {
                 launchTimePicker()
             }
-
             btnSave.setOnClickListener {
                 loadingDialog.startLoadingDialog()
-
                 name = etCustomerName.text.toString()
                 phone = etCustomerPhone.text.toString()
                 phone1 = etParentPhone.text.toString()
@@ -373,8 +337,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                 touchDate = etLeadTouchDate.text.toString()
                 cost = etCost.text.toString()
                 city = etCity.text.toString()
-
-
                 viewModel.addNewLead(
                     name,
                     phone,
@@ -399,7 +361,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
     private fun launchTimePicker() {
         mHour = calendar.get(Calendar.HOUR_OF_DAY)
         mMinute = calendar.get(Calendar.MINUTE)
-
         TimePickerDialog(
             this@AddNewLeadActivity,
             { _, hourOfDay, minute ->
@@ -413,7 +374,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
 
             }, mHour, mMinute, false
         ).show()
-
     }
 
     private fun launchDatePicker(id: Int) {
@@ -421,25 +381,21 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
         mYear = calendar.get(Calendar.YEAR)
         mMonth = calendar.get(Calendar.MONTH)
         mDay = calendar.get(Calendar.DAY_OF_MONTH)
-
         DatePickerDialog(
             this@AddNewLeadActivity,
             { _, year, month, day ->
-
                 mYear = year
                 mMonth = month
                 mDay = day
-
                 val date =
                     GenUtils.getConvertedDate(calendar, mYear, mMonth, mDay, pattern = "dd/MM/yyyy")
-
                 if (id == binding.etFollowupDate.id) {
                     binding.etFollowupDate.setText(date)
-
                     followupDate =
                         GenUtils.getFollowupDate(calendar, mYear, mMonth, mDay, mHour, mMinute)
-                } else
+                } else {
                     binding.etLeadTouchDate.setText(date)
+                }
             },
             mYear,
             mMonth,
@@ -458,10 +414,9 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
     override fun onDismissed(country: Country) {
         countryId = country.id.toString()
         binding.tvSelectedCountry.text = country.name
-
-        if (binding.progressState.visibility != View.VISIBLE)
+        if (binding.progressState.visibility != View.VISIBLE) {
             binding.progressState.visibility = View.VISIBLE
-
+        }
         viewModel.getStates(countryId)
     }
 }

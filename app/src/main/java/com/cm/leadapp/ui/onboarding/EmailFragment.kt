@@ -21,7 +21,7 @@ class EmailFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    val viewModel: OnboardingViewModel by hiltNavGraphViewModels(R.id.login_navigation)
+    private val viewModel: OnboardingViewModel by hiltNavGraphViewModels(R.id.login_navigation)
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -19,7 +19,6 @@ class ClosedLeadsPageSource(
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ClosedLeadData> {
-
         return try {
             val position = params.key ?: 1
             val response = apiHelper.getClosedLeads(input, position)

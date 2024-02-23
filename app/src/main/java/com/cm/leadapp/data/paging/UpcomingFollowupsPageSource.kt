@@ -21,7 +21,6 @@ class UpcomingFollowupsPageSource(
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, FollowupData> {
-
         return try {
             val position = params.key ?: 1
             val response = apiHelper.getUpcomingFollowups(input, position)

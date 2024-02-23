@@ -57,7 +57,6 @@ class MissedFollowupsAdapter(private val followupsItemClickListener: OnFollowups
                     }
                 }
             }
-
             imgCall.setOnClickListener(this)
             imgWhatsapp.setOnClickListener(this)
             imgMarkCompleted.setOnClickListener(this)
@@ -66,7 +65,6 @@ class MissedFollowupsAdapter(private val followupsItemClickListener: OnFollowups
             imgTimeLine.setOnClickListener(this)
             imgChangeAgent.setOnClickListener(this)
             imgView.setOnClickListener(this)
-
             imgDown.setOnClickListener {
                 if (it.rotation == 0f) {
                     it.rotation = 180f

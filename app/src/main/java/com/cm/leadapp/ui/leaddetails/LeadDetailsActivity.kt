@@ -22,15 +22,12 @@ class LeadDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLeadDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         leadId = intent.getStringExtra("lead_id")!!
-
         val actionBar: ActionBar? = supportActionBar
         actionBar?.apply {
             title = getString(R.string.lead_details)
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
-
         }
         setupViewPager()
     }

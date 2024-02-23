@@ -23,16 +23,13 @@ class StatusAdapter(val context: Context, dataSource: StatusData, private val ty
             StatusType.STATUS -> dataSource.status
             StatusType.FOLLOWUP -> dataSource.followType
             StatusType.FINAL_STATUS -> dataSource.finalStatus
-
         }
-
     }
 
     private val inflater: LayoutInflater =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-
         val view: View
         val vh: ItemHolder
         if (convertView == null) {
@@ -44,22 +41,15 @@ class StatusAdapter(val context: Context, dataSource: StatusData, private val ty
             vh = view.tag as ItemHolder
         }
         vh.label.text = getItemName(position)
-
-
-
         return view
     }
 
     private fun getItemName(pos: Int): String? {
-
         return when (type) {
-
             StatusType.STATUS -> (list[pos] as Status).name
             StatusType.FOLLOWUP -> (list[pos] as FollowType).name
             StatusType.FINAL_STATUS -> (list[pos] as FinalStatus).name
         }
-
-
     }
 
     override fun getItem(position: Int): Any? {
@@ -75,13 +65,11 @@ class StatusAdapter(val context: Context, dataSource: StatusData, private val ty
     }
 
     private class ItemHolder(row: View?) {
-        val label: TextView
 
+        val label: TextView
 
         init {
             label = row?.findViewById(R.id.tv_status) as TextView
-
         }
     }
-
 }

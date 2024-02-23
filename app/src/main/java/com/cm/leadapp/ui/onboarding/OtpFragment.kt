@@ -125,14 +125,12 @@ class OtpFragment : Fragment() {
                 )
             )
             etOtp6.addTextChangedListener(GenericTextWatcher(etOtp6, null))
-
             etOtp1.setOnKeyListener(GenericKeyEvent(etOtp1, null))
             etOtp2.setOnKeyListener(GenericKeyEvent(etOtp2, etOtp1))
             etOtp3.setOnKeyListener(GenericKeyEvent(etOtp3, etOtp2))
             etOtp4.setOnKeyListener(GenericKeyEvent(etOtp4, etOtp3))
             etOtp5.setOnKeyListener(GenericKeyEvent(etOtp5, etOtp4))
             etOtp6.setOnKeyListener(GenericKeyEvent(etOtp6, etOtp5))
-
             btnVerify.setOnClickListener {
                 if (getOtpString() == "" + otpReal) {
                     pref.saleId = saleId
@@ -152,7 +150,6 @@ class OtpFragment : Fragment() {
     }
 
     private fun getOtpString(): String {
-
         return binding.run {
             etOtp1.text.toString() +
                     etOtp2.text.toString() +
