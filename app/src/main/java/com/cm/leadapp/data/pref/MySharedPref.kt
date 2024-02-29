@@ -20,7 +20,7 @@ class MySharedPref @Inject constructor(@ApplicationContext val context: Context)
     init {
         pref = EncryptedSharedPreferences.create(
             context,
-            "app",
+            "LeadApp",
             getMasterKey(),
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM

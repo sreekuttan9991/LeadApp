@@ -29,8 +29,10 @@ import com.cm.leadapp.util.InputUtil.Companion.getLoginInputs
 import com.cm.leadapp.util.InputUtil.Companion.getMarkCompletedInput
 import com.cm.leadapp.util.InputUtil.Companion.getRequestBodyFromJsonObject
 import com.cm.leadapp.util.InputUtil.Companion.getStatisticsInputs
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import javax.inject.Inject
 
@@ -41,11 +43,12 @@ class ApiHelperImpl @Inject constructor(private val service: LeadApiInterface) :
 
     override fun getStatistics(saleId: String): Flow<StatisticsResponse> =
         flow {
-            emit(
+            val result = withContext(Dispatchers.IO) {
                 service.getStatistics(
                     getStatisticsInputs(saleId)
                 )
-            )
+            }
+            emit(result)
         }
 
     override fun getUpcomingFollowups(input: JSONObject, page: Int): Flow<FollowupResponse> {
@@ -152,7 +155,10 @@ class ApiHelperImpl @Inject constructor(private val service: LeadApiInterface) :
 
     override fun syncCallHistory(inputs: JSONObject): Flow<SyncResponse> {
         return flow {
-            emit(service.syncCallHistory(getRequestBodyFromJsonObject(inputs)))
+            val result = withContext(Dispatchers.IO) {
+                service.syncCallHistory(getRequestBodyFromJsonObject(inputs))
+            }
+            emit(result)
         }
     }
 }

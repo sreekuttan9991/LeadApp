@@ -23,7 +23,7 @@ class DashboardViewModel @Inject constructor(private val statisticsRepository: S
 
     fun getUserData(saleId: String) {
         statisticsRepository.geStatistics(saleId).onEach {
-            _statsData.value = mapper.getStatsList(it.statsData)
+            _statsData.postValue(mapper.getStatsList(it.statsData))
         }
             .catch { println(it) }
             .launchIn(viewModelScope)

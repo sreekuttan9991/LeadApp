@@ -137,19 +137,19 @@ class MainActivity : AppCompatActivity() {
                             duration = lcl.duration,
                             lead_id = scd.leadId!!,
                             phone = scd.userPhone!!,
-                            time = GenUtils.getDate(lcl.date.toLong(), "HH mm")
+                            time = GenUtils.getDate(lcl.date.toLong(), "HH:mm")
                         )
                     )
                 }
-                scd.parentPhone?.let {
-                    if(lcl.phoneNumber.contains(it)) {
+                if(!scd.parentPhone.isNullOrEmpty() || !scd.parentPhone.isNullOrBlank()) {
+                    if(lcl.phoneNumber.contains(scd.parentPhone!!)) {
                         contactsToSync.add(
                             com.cm.leadapp.data.request.CallLog(
                                 date = GenUtils.getDate(lcl.date.toLong(), "dd-MM-yyyy"),
                                 duration = lcl.duration,
                                 lead_id = scd.leadId!!,
-                                phone = it,
-                                time = GenUtils.getDate(lcl.date.toLong(), "HH mm")
+                                phone = scd.parentPhone!!,
+                                time = GenUtils.getDate(lcl.date.toLong(), "HH:mm")
                             )
                         )
                     }

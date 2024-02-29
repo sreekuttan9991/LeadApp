@@ -37,7 +37,7 @@ class MainViewModel @Inject constructor(val repository: MainRepository, val pref
         val outputJson: String = Gson().toJson(request)
         val jsonObject = JSONObject(outputJson)
         repository.syncCalls(jsonObject).onEach {
-            _syncCallsResp.value = it
+            _syncCallsResp.postValue(it)
         }.catch {
             println(it)
         }.launchIn(viewModelScope)
