@@ -27,16 +27,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hi."
+                android:text="@string/hi_greeting"
                 android:textColor="@color/purple_700"
-                android:textSize="30sp"
+                android:textSize="@dimen/tex_size_30"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Let's get started"
-                android:textSize="24sp" />
+                android:text="@string/greeting_description"
+                android:textSize="@dimen/tex_size_24" />
 
         </LinearLayout>
 
@@ -45,7 +45,7 @@
             style="@style/AppTheme.TextFloatLabelAppearance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/margin_10"
             android:layout_marginTop="192dp"
             app:boxBackgroundColor="@android:color/transparent"
             app:expandedHintEnabled="false"
@@ -62,14 +62,12 @@
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Email address"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:textColorHighlight="@color/purple_700"
                 android:textColorHint="@color/purple_700"
-                android:textSize="15dp"
-
-
+                android:textSize="@dimen/base_text_size"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +76,8 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/purple_700"
-            android:text="PROCEED"
+            android:text="@string/proceed"
+            android:textAllCaps="true"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,9 +85,9 @@
 
         <ProgressBar
             android:id="@+id/loadingIndicator"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="25dp"
+            android:layout_width="@dimen/margin_50"
+            android:layout_height="@dimen/margin_50"
+            android:layout_marginTop="@dimen/margin_25"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

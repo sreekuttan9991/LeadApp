@@ -7,6 +7,7 @@ import com.cm.leadapp.data.responsemodel.AgentResponse
 import com.cm.leadapp.data.responsemodel.ChangeAgentResponse
 import com.cm.leadapp.data.responsemodel.ChangeStatusResponse
 import com.cm.leadapp.data.responsemodel.ClosedLeadsResponse
+import com.cm.leadapp.data.responsemodel.CourseResponse
 import com.cm.leadapp.data.responsemodel.DistrictResponse
 import com.cm.leadapp.data.responsemodel.FollowupResponse
 import com.cm.leadapp.data.responsemodel.LeadDetailsResponse
@@ -18,6 +19,7 @@ import com.cm.leadapp.data.responsemodel.SaleContactResponse
 import com.cm.leadapp.data.responsemodel.StateResponse
 import com.cm.leadapp.data.responsemodel.StatisticsResponse
 import com.cm.leadapp.data.responsemodel.StatusResponse
+import com.cm.leadapp.data.responsemodel.StreamResponse
 import com.cm.leadapp.data.responsemodel.SyncResponse
 import com.cm.leadapp.data.responsemodel.TimelineResponse
 import com.cm.leadapp.data.responsemodel.TrashLeadResponse
@@ -30,9 +32,9 @@ import retrofit2.http.POST
 interface LeadApiInterface {
 
     companion object {
-        const val BASE_URL = "https:/crm.kbs.edu.in/token/user_api/"
+        const val BASE_URL = "https:/crm.aadh.in/token/user_api/"
 
-        // PROD: https://crm.kbs.edu.in/
+        // PROD: https://crm.aadh.in/
         // STAGING : https://core.coreleads.in/
         // TEST : https://demo2.coreleads.in/
     }
@@ -100,6 +102,14 @@ interface LeadApiInterface {
     @Headers("Content-Type: application/json")
     @POST("get_district")
     suspend fun getDistrictList(@Body body: RequestBody): DistrictResponse
+
+    @Headers("Content-Type: application/json")
+    @POST("get_course")
+    suspend fun getCourseList(@Body body: RequestBody): CourseResponse
+
+    @Headers("Content-Type: application/json")
+    @POST("get_stream")
+    suspend fun getStreamList(@Body body: RequestBody): StreamResponse
 
     @Headers("Content-Type: application/json")
     @POST("add_lead")

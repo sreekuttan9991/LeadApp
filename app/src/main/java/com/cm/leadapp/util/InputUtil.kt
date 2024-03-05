@@ -63,6 +63,18 @@ class InputUtil {
             return getRequestBodyFromJsonObject(input)
         }
 
+        fun getCourseInput(universityId: String): RequestBody {
+            val input = JSONObject()
+                input.put("university_id", universityId)
+            return getRequestBodyFromJsonObject(input)
+        }
+
+        fun getStreamInput(courseId: String): RequestBody {
+            val input = JSONObject()
+            input.put("course_id", courseId)
+            return getRequestBodyFromJsonObject(input)
+        }
+
         fun getRequestBodyFromJsonObject(input: JSONObject): RequestBody {
             return (input.toString()).toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
         }

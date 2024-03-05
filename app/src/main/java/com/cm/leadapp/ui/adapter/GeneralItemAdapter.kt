@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.cm.kbslead.R
+import com.cm.leadapp.data.responsemodel.CourseData
 import com.cm.leadapp.data.responsemodel.CustomerType
 import com.cm.leadapp.data.responsemodel.District
 import com.cm.leadapp.data.responsemodel.Products
 import com.cm.leadapp.data.responsemodel.Source
 import com.cm.leadapp.data.responsemodel.State
+import com.cm.leadapp.data.responsemodel.StreamData
 import com.cm.leadapp.util.GeneralItem
 
 class GeneralItemAdapter(
@@ -46,6 +48,8 @@ class GeneralItemAdapter(
             GeneralItem.CUSTOMER -> (list[pos] as CustomerType).name
             GeneralItem.SOURCE -> (list[pos] as Source).name
             GeneralItem.PRODUCT -> (list[pos] as Products).name
+            GeneralItem.COURSE -> (list[pos] as CourseData).name
+            GeneralItem.STREAM -> (list[pos] as StreamData).name
         }
     }
 

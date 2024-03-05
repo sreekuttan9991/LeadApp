@@ -7,11 +7,13 @@ import com.cm.leadapp.data.pref.MySharedPref
 import com.cm.leadapp.data.repository.AddNewLeadRepository
 import com.cm.leadapp.data.responsemodel.AddNewLeadResponse
 import com.cm.leadapp.data.responsemodel.Country
+import com.cm.leadapp.data.responsemodel.CourseData
 import com.cm.leadapp.data.responsemodel.CustomerType
 import com.cm.leadapp.data.responsemodel.District
 import com.cm.leadapp.data.responsemodel.Products
 import com.cm.leadapp.data.responsemodel.Source
 import com.cm.leadapp.data.responsemodel.State
+import com.cm.leadapp.data.responsemodel.StreamData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -50,6 +52,12 @@ class AddNewLeadViewModel @Inject constructor(
     private val _districtList = MutableLiveData<ArrayList<District>>()
     val districtList = _districtList
 
+    private val _courseList = MutableLiveData<ArrayList<CourseData>>()
+    val courseList = _courseList
+
+    private val _streamList = MutableLiveData<ArrayList<StreamData>>()
+    val streamList = _streamList
+
     private val _addNewLeadResponse = MutableLiveData<AddNewLeadResponse>()
     val addNewLeadResponse = _addNewLeadResponse
 
@@ -79,11 +87,25 @@ class AddNewLeadViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
+    fun getCourses(universityId: String) {
+        repository.getCourseList(universityId).onEach {
+            _courseList.value = it.data
+        }.catch { println(it) }
+            .launchIn(viewModelScope)
+    }
+
+    fun getStreams(courseId: String) {
+        repository.getStreamList(courseId).onEach {
+            _streamList.value = it.data
+        }.catch { println(it) }
+            .launchIn(viewModelScope)
+    }
+
     fun addNewLead(
         name: String, phone: String, phone1: String, email: String, followupDate: String,
-        productId: String, cost: String, touchDate: String, sourceId: String,
+        productId: String, touchDate: String, sourceId: String,
         feedbackId: String, customerCategoryId: String, countryId: String,
-        stateId: String, districtId: String, city: String
+        stateId: String, districtId: String, city: String, courseId: String, streamId: String, cost: String
     ) {
         val input = JSONObject()
         input.put("sales_id", pref.saleId)
@@ -93,7 +115,6 @@ class AddNewLeadViewModel @Inject constructor(
         input.put("email", email)
         input.put("followup_date", followupDate)
         input.put("product_id", productId)
-        input.put("cost", cost)
         input.put("touch_date", touchDate)
         input.put("source_id", sourceId)
         input.put("feed_back", feedbackId)
@@ -102,6 +123,9 @@ class AddNewLeadViewModel @Inject constructor(
         input.put("state_id", stateId)
         input.put("city_id", districtId)
         input.put("city", city)
+        input.put("course_id", courseId)
+        input.put("stream_id", streamId)
+        input.put("cost", cost)
         repository.addNewLead(input).onEach {
             _addNewLeadResponse.value = it
 

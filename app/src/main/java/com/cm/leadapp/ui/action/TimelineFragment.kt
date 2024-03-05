@@ -1,7 +1,5 @@
 package com.cm.leadapp.ui.action
 
-
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.cm.kbslead.R
 import com.cm.kbslead.databinding.FragmentTimelineBinding
 import com.cm.leadapp.ui.adapter.TimelineAdapter
+import com.cm.leadapp.util.ResourceUtil
 import com.lriccardo.timelineview.TimelineDecorator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -60,8 +60,8 @@ class TimelineFragment : Fragment() {
             addItemDecoration(
                 TimelineDecorator(
                     indicatorSize = 20f,
-                    indicatorColor = Color.parseColor("#FFF50057"),
-                    lineColor = Color.parseColor("#FF9C27B0"),
+                    indicatorColor = ResourceUtil.getColor(requireContext(), R.color.purple_500),
+                    lineColor = ResourceUtil.getColor(requireContext(), R.color.teal_200),
                     lineWidth = 8f,
                     position = TimelineDecorator.Position.Left,
                     padding = 48f

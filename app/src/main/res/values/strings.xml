@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KBS</string>
+    <string name="app_name">AADH Leads</string>
     <string name="version_text">Version %1$s</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -86,6 +86,14 @@
     <string name="alert">Alert</string>
     <string name="no_data_sync">No data to sync now.</string>
     <string name="gender">Gender</string>
+    <string name="qualification">Qualification</string>
+    <string name="university">University</string>
+    <string name="course">Course</string>
+    <string name="stream">Stream</string>
     <string name="parent_phone">Parent Phone</string>
     <string name="call">Call</string>
+    <string name="not_found">No data found for selected item.</string>
+    <string name="hi_greeting">Hi.</string>
+    <string name="greeting_description">Let\'s get started</string>
+    <string name="proceed">PROCEED</string>
 </resources>

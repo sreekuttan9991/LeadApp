@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -16,11 +17,13 @@ import androidx.lifecycle.lifecycleScope
 import com.cm.kbslead.R
 import com.cm.kbslead.databinding.ActivityAddNewLeadBinding
 import com.cm.leadapp.data.responsemodel.Country
+import com.cm.leadapp.data.responsemodel.CourseData
 import com.cm.leadapp.data.responsemodel.CustomerType
 import com.cm.leadapp.data.responsemodel.District
 import com.cm.leadapp.data.responsemodel.Products
 import com.cm.leadapp.data.responsemodel.Source
 import com.cm.leadapp.data.responsemodel.State
+import com.cm.leadapp.data.responsemodel.StreamData
 import com.cm.leadapp.ui.adapter.GeneralItemAdapter
 import com.cm.leadapp.util.GenUtils
 import com.cm.leadapp.util.GeneralItem
@@ -44,8 +47,10 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
     private var email = ""
     private var followupDate = ""
     private var productId = ""
-    private var touchDate = ""
+    private var courseId = ""
+    private var streamId = ""
     private var cost = ""
+    private var touchDate = ""
     private var sourceId = ""
     private var feedbackId = ""
     private var customerCategoryId = ""
@@ -59,12 +64,16 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
     private lateinit var sourceAdapter: GeneralItemAdapter
     private lateinit var productAdapter: GeneralItemAdapter
     private lateinit var customerAdapter: GeneralItemAdapter
+    private lateinit var courseAdapter: GeneralItemAdapter
+    private lateinit var streamAdapter: GeneralItemAdapter
 
     private lateinit var stateArrList: ArrayList<State>
     private lateinit var districtArrList: ArrayList<District>
     private lateinit var sourceArrList: ArrayList<Source>
     private lateinit var productArrList: ArrayList<Products>
     private lateinit var customerArrList: ArrayList<CustomerType>
+    private lateinit var courseArrList: ArrayList<CourseData>
+    private lateinit var streamArrList: ArrayList<StreamData>
 
     private lateinit var loadingDialog: LoadingDialog
 
@@ -164,22 +173,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                 }
             }
 
-            spinProducts.onItemSelectedListener = object : OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    productId = productArrList[position].id.toString()
-                }
-
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-
-                }
-            }
-
-
             spinType.onItemSelectedListener = object : OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
@@ -192,6 +185,57 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
 
+                }
+            }
+
+            spinProducts.onItemSelectedListener = object : OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    productId = productArrList[position].id.toString()
+                    if (binding.progressCourse.visibility != View.VISIBLE) {
+                        binding.progressCourse.visibility = View.VISIBLE
+                    }
+                    viewModel.getCourses(productId)
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+
+                }
+            }
+
+            spinCourse.onItemSelectedListener = object : OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    courseId = courseArrList[position].id.toString()
+                    if (binding.progressStream.visibility != View.VISIBLE) {
+                        binding.progressStream.visibility = View.VISIBLE
+                    }
+                    viewModel.getStreams(stateId)
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                }
+            }
+
+            spinStream.onItemSelectedListener = object : OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    streamId = streamArrList[position].id.toString()
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
                 }
             }
         }
@@ -258,6 +302,48 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                     GeneralItem.DISTRICT
                 )
                 binding.spinDistrict.adapter = districtAdapter
+            }
+
+            courseList.observe(this@AddNewLeadActivity) {
+                if (binding.progressCourse.visibility == View.VISIBLE) {
+                    binding.progressCourse.visibility = View.INVISIBLE
+                }
+                courseArrList = it
+                if (courseArrList.isNotEmpty()) {
+                    courseAdapter = GeneralItemAdapter(
+                        this@AddNewLeadActivity,
+                        courseArrList,
+                        GeneralItem.COURSE
+                    )
+                    binding.spinCourse.adapter = courseAdapter
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        getString(R.string.not_found),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            streamList.observe(this@AddNewLeadActivity) {
+                if (binding.progressStream.visibility == View.VISIBLE) {
+                    binding.progressStream.visibility = View.INVISIBLE
+                }
+                streamArrList = it
+                if (streamArrList.isNotEmpty()) {
+                    streamAdapter = GeneralItemAdapter(
+                        this@AddNewLeadActivity,
+                        streamArrList,
+                        GeneralItem.STREAM
+                    )
+                    binding.spinStream.adapter = streamAdapter
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        getString(R.string.not_found),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
 
             addNewLeadResponse.observe(this@AddNewLeadActivity) {
@@ -335,8 +421,8 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                 phone1 = etParentPhone.text.toString()
                 email = etCustomerEmail.text.toString()
                 touchDate = etLeadTouchDate.text.toString()
-                cost = etCost.text.toString()
                 city = etCity.text.toString()
+                cost = etCost.text.toString()
                 viewModel.addNewLead(
                     name,
                     phone,
@@ -344,7 +430,6 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                     email,
                     followupDate,
                     productId,
-                    cost,
                     touchDate,
                     sourceId,
                     feedbackId,
@@ -352,7 +437,10 @@ class AddNewLeadActivity : AppCompatActivity(), OnSelectCountryDialogDismissList
                     countryId,
                     stateId,
                     districtId,
-                    city
+                    city,
+                    courseId,
+                    streamId,
+                    cost
                 )
             }
         }

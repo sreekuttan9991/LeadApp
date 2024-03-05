@@ -10,7 +10,6 @@ class StatisticsUiMapper {
         statList.add(Statistics("Total Leads", "" + statsData?.totalLeads))
         statList.add(Statistics("Total Leads Today", "" + statsData?.totalLeadsCreatedToday))
         statList.add(Statistics("Followups Today", "" + statsData?.followupsToday))
-        statList.add(Statistics("Untouched Leads", "" + statsData?.untouchedLeads))
         statList.add(Statistics("Leads Closed Today", "" + statsData?.leadsClosedToday))
         return statList
     }

@@ -3,7 +3,6 @@ package com.cm.leadapp.ui.onboarding
 import android.Manifest
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -19,7 +18,6 @@ import com.cm.kbslead.databinding.FragmentSplashBinding
 import com.cm.leadapp.MainActivity
 import com.cm.leadapp.data.pref.MySharedPref
 import com.cm.leadapp.util.GenUtils
-import com.lriccardo.timelineview.BuildConfig
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

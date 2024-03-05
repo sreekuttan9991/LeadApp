@@ -6,6 +6,7 @@ import com.cm.leadapp.data.responsemodel.AgentResponse
 import com.cm.leadapp.data.responsemodel.ChangeAgentResponse
 import com.cm.leadapp.data.responsemodel.ChangeStatusResponse
 import com.cm.leadapp.data.responsemodel.ClosedLeadsResponse
+import com.cm.leadapp.data.responsemodel.CourseResponse
 import com.cm.leadapp.data.responsemodel.DistrictResponse
 import com.cm.leadapp.data.responsemodel.FollowupResponse
 import com.cm.leadapp.data.responsemodel.LeadDetailsResponse
@@ -17,6 +18,7 @@ import com.cm.leadapp.data.responsemodel.SaleContactResponse
 import com.cm.leadapp.data.responsemodel.StateResponse
 import com.cm.leadapp.data.responsemodel.StatisticsResponse
 import com.cm.leadapp.data.responsemodel.StatusResponse
+import com.cm.leadapp.data.responsemodel.StreamResponse
 import com.cm.leadapp.data.responsemodel.SyncResponse
 import com.cm.leadapp.data.responsemodel.TimelineResponse
 import com.cm.leadapp.data.responsemodel.TrashLeadResponse
@@ -56,6 +58,10 @@ interface ApiHelper {
     fun getStateList(countryId: String): Flow<StateResponse>
 
     fun getDistrictList(stateId: String): Flow<DistrictResponse>
+
+    fun getCourseList(universityId: String): Flow<CourseResponse>
+
+    fun getStreamList(courseId: String): Flow<StreamResponse>
 
     fun addNewLead(inputs: JSONObject): Flow<AddNewLeadResponse>
 

@@ -5,6 +5,7 @@ import com.cm.leadapp.api.ApiHelper
 import com.cm.leadapp.api.ApiHelperImpl
 import com.cm.leadapp.api.LeadApiInterface
 import com.cm.leadapp.data.pref.MySharedPref
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +26,7 @@ object AppModule {
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
             .baseUrl(LeadApiInterface.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .client(
                 OkHttpClient.Builder()
                     .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))

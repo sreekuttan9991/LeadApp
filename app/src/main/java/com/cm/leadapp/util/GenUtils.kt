@@ -12,7 +12,6 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
-import kotlin.collections.HashMap
 
 object GenUtils {
 
@@ -23,6 +22,8 @@ object GenUtils {
             put("email", "#F0C58B")
             put("meeting", "#FCCACA")
             put("", "#9DFAB3")
+            put("walkin", "#36c6d3")
+            put("followup", "#e7505a")
             put("null", "#9DFAB3")
         }
     }
@@ -53,20 +54,16 @@ object GenUtils {
     fun setStatus(tv: TextView, status: String?) {
         tv.text = status
         when (status?.lowercase()?.trim()?.replace(" ", "")) {
-            "applicationformsend" -> tv.setBackgroundColor(Color.parseColor("#FF8C00"))
-            "justenquiry" -> tv.setBackgroundColor(Color.parseColor("#8fbbef"))
-            "ring/callbusy" -> tv.setBackgroundColor(Color.parseColor("#9602e6"))
-            "delay" -> tv.setBackgroundColor(Color.parseColor("#f1cd0f"))
-            "partiallyinterested" -> tv.setBackgroundColor(Color.parseColor("#8fb97d"))
+            "admissionregistered" -> tv.setBackgroundColor(Color.parseColor("#FF8C00"))
+            "followingup" -> tv.setBackgroundColor(Color.parseColor("#8BC34A"))
+            "pending" -> tv.setBackgroundColor(Color.parseColor("#f1cd0f"))
+            "inprocess" -> tv.setBackgroundColor(Color.parseColor("#8fb97d"))
             "interested" -> tv.setBackgroundColor(Color.parseColor("#37e602"))
-            "partiallyintrested" -> tv.setBackgroundColor(Color.parseColor("#8fb97d"))
             "intrested" -> tv.setBackgroundColor(Color.parseColor("#37e602"))
-            "awaitingresponse" -> tv.setBackgroundColor(Color.parseColor("#404040"))
-            "switchoff" -> tv.setBackgroundColor(Color.parseColor("#a8dced"))
-            "notrelatedtomba" -> tv.setBackgroundColor(Color.parseColor("#027fe6"))
-            "kmatintrested" -> tv.setBackgroundColor(Color.parseColor("#e68b02"))
-            "kmatinterested" -> tv.setBackgroundColor(Color.parseColor("#e68b02"))
-            else -> tv.setBackgroundColor(Color.parseColor("#404040"))
+            "active" -> tv.setBackgroundColor(Color.parseColor("#00796B"))
+            "delivered" -> tv.setBackgroundColor(Color.parseColor("#388E3C"))
+
+            else -> tv.setBackgroundColor(Color.parseColor("#FF8C00"))
         }
     }
 
@@ -146,5 +143,5 @@ object GenUtils {
         }
 
     fun getFollowupColor(followupType: String?): String? =
-        followupColorMap[followupType?.lowercase()]
+        followupColorMap[followupType?.lowercase()?.replace(" ","")]
 }

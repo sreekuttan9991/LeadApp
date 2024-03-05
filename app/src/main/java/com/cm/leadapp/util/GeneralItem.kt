@@ -5,5 +5,7 @@ enum class GeneralItem {
     DISTRICT,
     SOURCE,
     CUSTOMER,
-    PRODUCT
+    PRODUCT,
+    COURSE,
+    STREAM
 }
