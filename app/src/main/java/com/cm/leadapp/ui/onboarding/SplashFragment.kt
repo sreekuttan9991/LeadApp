@@ -3,7 +3,6 @@ package com.cm.leadapp.ui.onboarding
 import android.Manifest
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -14,12 +13,11 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.cm.kbslead.R
-import com.cm.kbslead.databinding.FragmentSplashBinding
+import com.cm.pimslead.R
+import com.cm.pimslead.databinding.FragmentSplashBinding
 import com.cm.leadapp.MainActivity
 import com.cm.leadapp.data.pref.MySharedPref
 import com.cm.leadapp.util.GenUtils
-import com.lriccardo.timelineview.BuildConfig
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

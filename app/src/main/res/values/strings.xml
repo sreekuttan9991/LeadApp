@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KBS</string>
+    <string name="app_name">PIMS</string>
     <string name="version_text">Version %1$s</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

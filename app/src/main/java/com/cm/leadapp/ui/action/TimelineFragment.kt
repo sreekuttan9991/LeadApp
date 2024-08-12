@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cm.kbslead.databinding.FragmentTimelineBinding
+import com.cm.pimslead.databinding.FragmentTimelineBinding
 import com.cm.leadapp.ui.adapter.TimelineAdapter
 import com.lriccardo.timelineview.TimelineDecorator
 import dagger.hilt.android.AndroidEntryPoint

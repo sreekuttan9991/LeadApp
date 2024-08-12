@@ -9,8 +9,8 @@ import android.widget.ImageView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.cm.kbslead.R
-import com.cm.kbslead.databinding.ItemFollowupBinding
+import com.cm.pimslead.R
+import com.cm.pimslead.databinding.ItemFollowupBinding
 import com.cm.leadapp.data.responsemodel.FollowupData
 import com.cm.leadapp.util.GenUtils
 import com.cm.leadapp.util.OnFollowupsItemClickListener

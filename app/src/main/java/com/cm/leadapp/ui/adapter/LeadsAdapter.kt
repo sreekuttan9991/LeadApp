@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.cm.kbslead.databinding.ItemLeadsBinding
+import com.cm.pimslead.databinding.ItemLeadsBinding
 import com.cm.leadapp.data.responsemodel.LeadData
 import com.cm.leadapp.util.GenUtils
 import com.cm.leadapp.util.OnLeadsItemClickListener

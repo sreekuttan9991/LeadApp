@@ -4,7 +4,7 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.cm.kbslead.databinding.ItemTimelineBinding
+import com.cm.pimslead.databinding.ItemTimelineBinding
 import com.cm.leadapp.data.responsemodel.TimelineData
 
 class TimelineAdapter(private val mList: ArrayList<TimelineData>) :

@@ -2,7 +2,7 @@ package com.cm.leadapp.ui.onboarding
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.cm.kbslead.databinding.ActivityOnboardingBinding
+import com.cm.pimslead.databinding.ActivityOnboardingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

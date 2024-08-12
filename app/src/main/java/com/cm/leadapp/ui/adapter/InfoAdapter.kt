@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.cm.kbslead.databinding.ItemInfoBinding
+import com.cm.pimslead.databinding.ItemInfoBinding
 import com.cm.leadapp.data.uimodel.Info
 
 class InfoAdapter(

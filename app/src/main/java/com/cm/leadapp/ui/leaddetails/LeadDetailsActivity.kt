@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import com.cm.kbslead.R
-import com.cm.kbslead.databinding.ActivityLeadDetailsBinding
+import com.cm.pimslead.R
+import com.cm.pimslead.databinding.ActivityLeadDetailsBinding
 import com.cm.leadapp.ui.adapter.PagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint

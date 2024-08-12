@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cm.kbslead.databinding.FragmentFollowupHistoryBinding
+import com.cm.pimslead.databinding.FragmentFollowupHistoryBinding
 import com.cm.leadapp.ui.adapter.FollowupHistoryAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

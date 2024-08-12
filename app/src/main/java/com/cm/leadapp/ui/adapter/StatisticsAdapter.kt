@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.cm.kbslead.databinding.ItemStatisticsBinding
+import com.cm.pimslead.databinding.ItemStatisticsBinding
 import com.cm.leadapp.data.uimodel.Statistics
 import com.cm.leadapp.util.ResourceUtil
 

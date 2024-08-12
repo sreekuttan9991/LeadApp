@@ -10,8 +10,8 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cm.kbslead.R
-import com.cm.kbslead.databinding.FragmentFollowupBinding
+import com.cm.pimslead.R
+import com.cm.pimslead.databinding.FragmentFollowupBinding
 import com.cm.leadapp.data.responsemodel.FollowupData
 import com.cm.leadapp.ui.action.LeadActionsActivity
 import com.cm.leadapp.ui.adapter.UpComingFollowupsAdapter

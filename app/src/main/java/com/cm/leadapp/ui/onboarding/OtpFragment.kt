@@ -12,8 +12,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
-import com.cm.kbslead.R
-import com.cm.kbslead.databinding.FragmentOtpBinding
+import com.cm.pimslead.R
+import com.cm.pimslead.databinding.FragmentOtpBinding
 import com.cm.leadapp.MainActivity
 import com.cm.leadapp.data.pref.MySharedPref
 import dagger.hilt.android.AndroidEntryPoint

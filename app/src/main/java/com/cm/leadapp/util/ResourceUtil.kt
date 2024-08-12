@@ -1,7 +1,7 @@
 package com.cm.leadapp.util
 
 import android.content.Context
-import com.cm.kbslead.R
+import com.cm.pimslead.R
 
 
 class ResourceUtil {

@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.cm.kbslead.R
-import com.cm.kbslead.databinding.FragmentDashboardBinding
+import com.cm.pimslead.R
+import com.cm.pimslead.databinding.FragmentDashboardBinding
 import com.cm.leadapp.data.pref.MySharedPref
 import com.cm.leadapp.ui.adapter.StatisticsAdapter
 import com.cm.leadapp.ui.onboarding.OnboardingActivity

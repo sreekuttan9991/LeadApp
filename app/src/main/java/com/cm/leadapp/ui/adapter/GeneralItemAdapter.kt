@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.cm.kbslead.R
+import com.cm.pimslead.R
 import com.cm.leadapp.data.responsemodel.CustomerType
 import com.cm.leadapp.data.responsemodel.District
 import com.cm.leadapp.data.responsemodel.Products
@@ -66,7 +66,7 @@ class GeneralItemAdapter(
         val label: TextView
 
         init {
-            label = row?.findViewById(R.id.tv_status) as TextView
+            label = row?.findViewById<TextView>(R.id.tv_status)!!
         }
     }
 }

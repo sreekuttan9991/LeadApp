@@ -13,8 +13,8 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
-import com.cm.kbslead.R
-import com.cm.kbslead.databinding.ActivityAddNewLeadBinding
+import com.cm.pimslead.R
+import com.cm.pimslead.databinding.ActivityAddNewLeadBinding
 import com.cm.leadapp.data.responsemodel.Country
 import com.cm.leadapp.data.responsemodel.CustomerType
 import com.cm.leadapp.data.responsemodel.District

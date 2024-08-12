@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.cm.kbslead.R
+import com.cm.pimslead.R
 import com.cm.leadapp.data.responsemodel.FinalStatus
 import com.cm.leadapp.data.responsemodel.FollowType
 import com.cm.leadapp.data.responsemodel.Status
@@ -69,7 +69,7 @@ class StatusAdapter(val context: Context, dataSource: StatusData, private val ty
         val label: TextView
 
         init {
-            label = row?.findViewById(R.id.tv_status) as TextView
+            label = row?.findViewById<TextView>(R.id.tv_status)!!
         }
     }
 }

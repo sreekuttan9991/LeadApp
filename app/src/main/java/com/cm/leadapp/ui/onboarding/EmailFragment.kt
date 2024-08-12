@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
-import com.cm.kbslead.R
-import com.cm.kbslead.databinding.FragmentEmailBinding
+import com.cm.pimslead.R
+import com.cm.pimslead.databinding.FragmentEmailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
